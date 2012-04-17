@@ -17,6 +17,8 @@ runtime! archlinux.vim
 
 syntax on
 
+set nocompatible
+
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 "set background=dark

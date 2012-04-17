@@ -43,3 +43,15 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 
+# Do not freeze/unfreeze when tipping ctrl+S and ctrl+Q in vim
+vim()
+{
+	local STTYOPTS="$(stty --save)"
+	# ctrl+S freeze
+	stty stop '' -ixoff
+	# ctrl+Q unfreeze
+	stty stop '' -ixon
+	command vim "$@"
+	stty "$STTYOPTS"
+}
+

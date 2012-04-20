@@ -42,6 +42,7 @@ alias ls='ls --color=auto'
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+alias open='xdg-open'
 
 # Do not freeze/unfreeze when tipping ctrl+S and ctrl+Q in vim
 vim()

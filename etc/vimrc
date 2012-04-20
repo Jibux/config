@@ -79,16 +79,10 @@ noremap <C-s> :update<CR>
 vnoremap <C-s> <C-C>:update<CR>
 inoremap <C-s> <C-O>:update<CR>
 
-" Map ctrl+w to quit one file
-noremap <C-w> :q<CR>
-vnoremap <C-w> <C-C>:q<CR>
-inoremap <C-w> <C-O>:q<CR>
-
 " Map ctrl+q to quit all files
 noremap <C-q> :qa<CR>
 vnoremap <C-q> <C-C>:qa<CR>
 inoremap <C-q> <C-O>:qa<CR>
-
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")

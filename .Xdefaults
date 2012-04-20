@@ -77,6 +77,8 @@ URxvt*geometry: 100x50
 
 ! Police TTF
 URxvt*font: xft:Bitstream Vera Sans Mono:style=Regular:pixelsize=14:antialias=true
+! Pour supprimer le gras, on met la même ligne pour boldFont
+!URxvt*boldFont: xft:Bitstream Vera Sans Mono:style=Regular:pixelsize=14:antialias=true
 
 !URxvt*font: fixed
 !URxvt*boldFont: fixed

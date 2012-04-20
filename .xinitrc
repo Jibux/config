@@ -1,6 +1,8 @@
 #!/bin/bash
 
 DEFAULT_SESSION=startfluxbox
+DE=startfluxbox
+BROWSER=chromium
 
 case $1 in
 	gnome)

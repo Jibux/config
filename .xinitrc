@@ -1,5 +1,7 @@
 #!/bin/bash
 
+xbindkeys
+
 DEFAULT_SESSION=startfluxbox
 DE=startfluxbox
 BROWSER=chromium

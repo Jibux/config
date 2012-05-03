@@ -28,6 +28,9 @@ export BROWSER=/usr/bin/chromium
 # Autocompletion <TAB><TAB> for sudo
 complete -cf sudo
 
+# PATH
+PATH="${PATH}:/scripts:"
+
 
 ###########
 # ALIASES #
@@ -36,11 +39,14 @@ complete -cf sudo
 # Keep bashrc settings SECURE ???
 #alias sudo='A=`alias` sudo '
 
-alias vi=vim
+alias vi='vim'
+
+alias sl='ls'
 
 alias ls='ls --color=auto'
 alias ll='ls -l'
 alias la='ls -A'
+alias lla='ls -al'
 alias l='ls -CF'
 alias open='xdg-open'
 

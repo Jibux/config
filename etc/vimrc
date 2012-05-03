@@ -19,6 +19,8 @@ syntax on
 
 set nocompatible
 
+set t_Co=256 "Active le mode 256 couleurs
+
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 "set background=dark
@@ -60,11 +62,23 @@ set noequalalways
 
 set ts=4
 set sw=4
+" Souligne les resultats
 set hlsearch
+
+" Ligne suivante/précédente ssi flèches droite/gauche en bout de ligne
+set whichwrap=<,>,[,]
+
+set title
+
+set cursorline
+"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+
+set nostartofline
 
 "colorscheme camo
 
-"hi Visual ctermfg=black ctermbg=Red
+hi Visual ctermfg=black ctermbg=Red
 
 " Avoid screen problem for (Meta) Left and (Meta) right
 "if $TERM =~ 'screen' 
@@ -74,7 +88,7 @@ set hlsearch
 "	inoremap <Esc>[1;5D <C-O>B
 "endif 
 
-" Map ctrl+S for saving
+" Map ctrl+s for saving
 noremap <C-s> :update<CR>
 vnoremap <C-s> <C-C>:update<CR>
 inoremap <C-s> <C-O>:update<CR>
@@ -84,10 +98,17 @@ noremap <C-q> :qa<CR>
 vnoremap <C-q> <C-C>:qa<CR>
 inoremap <C-q> <C-O>:qa<CR>
 
+" ctrl+page-up or ctrl+page-down
+map [6^ :next<CR>
+map [5^ :prev<CR>
+
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
 	source /etc/vim/vimrc.local
 endif
+
+" Increase mapping reactivity (The time in milliseconds that is waited for a key code or mapped key sequence to complete)
+set timeout timeoutlen=3000 ttimeoutlen=100
 
 syntax keyword SpellBad ERROR
 

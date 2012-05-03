@@ -95,10 +95,9 @@ URxvt*cutchars: "()*,<>[]{}|'.;:
 URxvt*keysym.Meta-Left: \033[1;5D
 URxvt*keysym.Meta-Right: \033[1;5C
 
-
 ! Active ou pas la transparence
-URxvt.keysym.Control-t: command:\033]11;[90]#101010\007
-URxvt.keysym.Control-Meta-t: command:\033]11;#101010\007
+URxvt*keysym.Control-t: command:\033]11;[90]#101010\007
+URxvt*keysym.Control-Meta-t: command:\033]11;#101010\007
 
 ! Taille du buffer et barre de défilement
 URxvt*saveLines: 5000
@@ -114,6 +113,9 @@ URxvt*scrollstyle: plain
 
 ! Curseur et nom du terminal
 URxvt*cursorColor: white
+URxvt*cursorColor2: black
+URxvt*cursorBlink: true
+URxvt*cursorUnderline: false
 URxvt*termName:rxvt
 
 
@@ -158,18 +160,26 @@ URxvt*background: rgba:1000/1000/1000/FFFF
 
 !# include "/home/gmarchan/.config/xdefaults/colors1"
 
+! Désactive les 'KEYCAP PICTURE INSERT MODE'
+URxvt*iso14755_52: false
 
 URxvt.buffered: true
-!URxvt.underlineColor: yellow
+!URxvt.underlineColor: blue
 
 URxvt*tabbed.tabbar-fg: 11
 URxvt*tabbed.tabbar-bg: 8
 URxvt*tabbed.tab-fg: 1
 URxvt*tabbed.tab-bg: 0
 
+! Ne pas faire défiler la barre de défilement si on regarde au dessus et qu'il y a quelque chose qui s'affiche sur stdout
+URxvt*scrollTtyOutput:      false
+! Sinon oui
+URxvt*scrollWithBuffer:     true
+URxvt*scrollTtyKeypress:    true
+
 !URxvt.title: 
 urxvt*perl-lib:     /usr/lib/urxvt/perl
-URxvt.perl-ext-common: default,tabbed,matcher
+URxvt.perl-ext-common: default,tabbed,matcher,clipboard
 URxvt.urlLauncher     : /usr/bin/chromium
 URxvt.matcher.button  : 1
 

@@ -18,7 +18,8 @@ runtime! archlinux.vim
 syntax on
 
 set nocompatible
-
+set autoread
+set title
 set t_Co=256 "Active le mode 256 couleurs
 
 " If using a dark background within the editing area and syntax highlighting
@@ -37,6 +38,9 @@ if has("autocmd")
 	filetype plugin indent on
 endif
 
+
+set backspace=indent,eol,start
+
 "let loaded_minibufexplorer = 0
 
 "let g:miniBufExplMapWindowNavVim = 1 
@@ -54,27 +58,67 @@ set incsearch		" Incremental search
 "set autowrite		" Automatically save before commands like :next and :make
 "set hidden         " Hide buffers when they are abandoned
 set mouse=a		" Enable mouse usage (all modes)
-set autoindent
-set smartindent
+set number
+set shortmess=at
+set wildignore=*.o,*.obj,*.bak,*.exe
+
+set nostartofline
+set sessionoptions+=buffers,curdir
 
 " Permet de toujours concerver les proportions pour les splits
 set noequalalways
 
-set ts=4
-set sw=4
+" Indent
+set autoindent
+set smartindent
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
+set noexpandtab
+"En mode visuel conserve le bloc indenté
+vnoremap < <gv
+vnoremap > >gv
+" Use TAB
+nnoremap <TAB> >>
+vmap <TAB> >
+nnoremap <S-TAB> <<
+vmap <S-TAB> <
+
+" Options pour le mode diff
+set diffopt=filler,iwhite,vertical
+
+" Mode turbo
+set ttyfast
+set showcmd
+"set noswapfile
+
 " Souligne les resultats
 set hlsearch
+"Recherche intelligente
+set smartcase
+highlight Search ctermfg=Black ctermbg=yellow cterm=NONE
 
 " Ligne suivante/précédente ssi flèches droite/gauche en bout de ligne
 set whichwrap=<,>,[,]
 
-set title
+set laststatus=2
+set statusline= " clear
+set statusline+=%-3.3n\ " nombre buffer
+set statusline+=%f\ " nom fichier
+set statusline+=%h%m%r%w " flags
+set statusline+=[%{strlen(&ft)?&ft:'none'}, " type fichier
+set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encodage
+set statusline+=%{&fileformat}] " format fichier
+set statusline+=%#warningmsg# " Syntastic
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+set statusline+=%= " alignement droite
+set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
 
 set cursorline
-"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+hi CursorLine cterm=NONE ctermbg=black ctermfg=NONE guibg=NONE guifg=NONE
+hi CursorLineNr cterm=NONE ctermbg=NONE ctermfg=yellow guibg=NONE guifg=NONE
 "hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-
-set nostartofline
 
 "colorscheme camo
 
@@ -98,9 +142,24 @@ noremap <C-q> :qa<CR>
 vnoremap <C-q> <C-C>:qa<CR>
 inoremap <C-q> <C-O>:qa<CR>
 
+" Shortcut to save/restore sessions
+nnoremap <F5> :mksession! ~/.vim/sessions/
+nnoremap <F6> :so ~/.vim/sessions/
+
+set pastetoggle=<F2>
+
+" Copy/cut/past in visual mode using clipboard
+vnoremap <C-c> "+y
+vnoremap <C-x> "+d
+vnoremap <C-v> "+p
+
+" number and foldcolumn on/off
+noremap	<F3> :set nonumber <bar> set foldcolumn=0 <CR>
+noremap	<F4> :set number <bar> set foldcolumn=1 <CR>
+
 " ctrl+page-up or ctrl+page-down
-map [6^ :next<CR>
-map [5^ :prev<CR>
+noremap [6^ :next<CR>
+noremap [5^ :prev<CR>
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -109,6 +168,48 @@ endif
 
 " Increase mapping reactivity (The time in milliseconds that is waited for a key code or mapped key sequence to complete)
 set timeout timeoutlen=3000 ttimeoutlen=100
+
+" Syntastic
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+
+let g:SuperTabDefaultCompletionType = "context"
+
+" Folding {{{
+if has ('folding')
+	set foldenable
+	set foldmethod=marker
+	set foldmarker={{{,}}}
+	set foldcolumn=1
+endif
+
+" Sauve et charge automatiquement les folds
+autocmd BufWinLeave * if expand("%") != "" | mkview | endif
+autocmd BufWinEnter * if expand("%") != "" | loadview | endif
+
+" Fold Toogle
+inoremap <F1> <C-O>za
+nnoremap <F1> za
+onoremap <F1> <C-C>za
+vnoremap <F1> zf
+
+
+hi FoldColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+hi Folded cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+" }}}
+
+" Spell
+if has("spell")
+	if !filewritable($HOME."/.vim/spell")
+		call mkdir($HOME."/.vim/spell", "p")
+	endif
+	set spellsuggest=10 "10 suggestions
+	" On règle les touches d'activation manuelle de la correction orthographique
+	noremap <F10> :setlocal spell spelllang=fr <CR>
+	noremap <F11> :setlocal spell spelllang=en <CR>
+	noremap <F12> :setlocal nospell <CR>
+	noremap [29~ z=
+endif
 
 syntax keyword SpellBad ERROR
 

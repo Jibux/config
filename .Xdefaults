@@ -84,7 +84,7 @@ URxvt*font: xft:Bitstream Vera Sans Mono:style=Regular:pixelsize=14:antialias=tr
 !URxvt*boldFont: fixed
 
 ! Caractères de séparation
-URxvt*cutchars: "()*,<>[]{}|'.;:
+URxvt*cutchars: "(),<>[]{}|'
 
 !URxvt*keysym.C-Left: \033[1;5D
 !URxvt*keysym.C-Right: \033[1;5C

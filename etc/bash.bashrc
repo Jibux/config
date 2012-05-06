@@ -41,7 +41,7 @@ PATH="${PATH}:/scripts:"
 
 alias vi='vim'
 
-alias sl='ls'
+alias sl='/bin/ls'
 
 alias ls='ls --color=auto'
 alias ll='ls -l'
@@ -58,7 +58,8 @@ vim()
 	stty stop '' -ixoff
 	# ctrl+Q unfreeze
 	stty stop '' -ixon
-	command vim "$@"
+	# -p added to always open with tabs
+	command vim -p "$@"
 	stty "$STTYOPTS"
 }
 

@@ -116,8 +116,8 @@ set statusline+=%= " alignement droite
 set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
 
 set cursorline
-hi CursorLine cterm=NONE ctermbg=black ctermfg=NONE guibg=NONE guifg=NONE
-hi CursorLineNr cterm=NONE ctermbg=NONE ctermfg=yellow guibg=NONE guifg=NONE
+hi CursorLine cterm=NONE ctermbg=234 ctermfg=NONE guibg=NONE guifg=NONE
+hi CursorLineNr cterm=NONE ctermbg=234 ctermfg=white guibg=NONE guifg=NONE
 "hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 
 "colorscheme camo
@@ -146,7 +146,7 @@ inoremap <C-q> <C-O>:qa<CR>
 nnoremap <F5> :mksession! ~/.vim/sessions/
 nnoremap <F6> :so ~/.vim/sessions/
 
-set pastetoggle=<F2>
+set pastetoggle=<F1>
 
 " Copy/cut/past in visual mode using clipboard
 vnoremap <C-c> "+y
@@ -157,9 +157,12 @@ vnoremap <C-v> "+p
 noremap	<F3> :set nonumber <bar> set foldcolumn=0 <CR>
 noremap	<F4> :set number <bar> set foldcolumn=1 <CR>
 
+" Tabs
 " ctrl+page-up or ctrl+page-down
-noremap [6^ :next<CR>
-noremap [5^ :prev<CR>
+noremap [6^ :tabnext<CR>
+noremap [5^ :tabprevious<CR>
+nnoremap <C-w> :q<CR>
+nnoremap <C-t> :tabnew<CR>
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -188,15 +191,17 @@ autocmd BufWinLeave * if expand("%") != "" | mkview | endif
 autocmd BufWinEnter * if expand("%") != "" | loadview | endif
 
 " Fold Toogle
-inoremap <F1> <C-O>za
-nnoremap <F1> za
-onoremap <F1> <C-C>za
-vnoremap <F1> zf
-
+inoremap <F2> <C-O>za
+nnoremap <F2> za
+onoremap <F2> <C-C>za
+vnoremap <F2> zf
 
 hi FoldColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 hi Folded cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 " }}}
+
+" NERDTree
+noremap <F7> :NERDTreeToggle <CR>
 
 " Spell
 if has("spell")

@@ -92,7 +92,7 @@ bind I login on
 bind O login off
 bind } history
 
-# bind ctrl+e rather than ctrl+a as escape char
+# Bind ctrl+e rather than ctrl+a as escape char
 escape ^Ee
 
 term rxvt

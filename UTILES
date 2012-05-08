@@ -1,0 +1,18 @@
+#################
+# CHOSES UTILES #
+#################
+
+# Modifier l'apparence
+lxappearance
+
+# Modifier la vitesse du lecteur cd
+hdparm -E4 /dev/cdrom
+
+# Définir navigateur par défaut de thunderbird
+Navigate to "Edit --> Preferences --> Advanced" in the Thunderbird menus and click on the "Config Editor" button.
+Search for the following three entries:
+network.protocol-handler.warn-external.http
+network.protocol-handler.warn-external.https
+network.protocol-handler.warn-external.ftp 
+Set the value of each of these three entries to true (you can do this by double-clicking on each entry, then close the "about:config" window and click "OK" on the "Thunderbird Preferences" window).
+

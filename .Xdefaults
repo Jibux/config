@@ -99,8 +99,8 @@ URxvt*keysym.Meta-Right: \033[1;5C
 URxvt*keysym.Control-Meta-t: command:\033]11;[90]#000000\007
 URxvt*keysym.Control-Meta-y: command:\033]11;#101010\007
 
-! URxvt.keysym.C-c: perl:clipboard:copy
-! URxvt*keysym.C-v: perl:clipboard:paste
+URxvt.keysym.Meta-c: perl:clipboard:copy
+URxvt*keysym.Meta-v: perl:clipboard:paste
 
 ! Taille du buffer et barre de défilement
 URxvt*saveLines: 5000
@@ -120,7 +120,6 @@ URxvt*cursorColor2: black
 URxvt*cursorBlink: true
 URxvt*cursorUnderline: false
 URxvt*termName:rxvt
-
 
 !URxvt*transparent:true
 ! Don't use with tintColor
@@ -183,6 +182,7 @@ URxvt*scrollTtyKeypress:    true
 !URxvt.title: 
 urxvt*perl-lib:     /usr/lib/urxvt/perl
 URxvt.perl-ext-common: default,tabbed,matcher,clipboard
+!,vtwheel
 URxvt.urlLauncher     : /usr/bin/chromium
 URxvt.matcher.button  : 1
 

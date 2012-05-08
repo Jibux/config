@@ -15,8 +15,6 @@ runtime! archlinux.vim
 " Or better yet, read /usr/share/vim/vim72/vimrc_example.vim or the vim manual
 " and configure vim to your own liking!
 
-syntax enable
-
 set nocompatible
 set autoread
 set title
@@ -40,6 +38,8 @@ if has("autocmd")
 	filetype plugin indent on
 endif
 
+filetype plugin on
+syntax on
 
 set backspace=indent,eol,start
 
@@ -128,13 +128,12 @@ hi Pmenu cterm=NONE ctermbg=grey ctermfg=black guibg=NONE guifg=NONE
 hi PmenuSel cterm=bold ctermbg=black ctermfg=red guibg=NONE guifg=NONE
 hi PmenuSbar cterm=NONE ctermbg=yellow ctermfg=NONE guibg=NONE guifg=NONE
 
-"syn keyword   cTodo   contained    TODO FIXME XXX
-syntax keyword MyTodo contained CACA
-"syn match   myTodo   contained   "\<\(TODO\|FIXME\):"
+" TEST1 TEST2 -> doesn't work
+syntax keyword Todo contained TEST1 TEST2
 
 hi Todo cterm=NONE ctermbg=white ctermfg=black guibg=NONE guifg=NONE
 "hi def link MyTodo Todo
-hi MyTodo cterm=NONE ctermbg=white ctermfg=black guibg=NONE guifg=NONE
+hi MyTodo cterm=NONE ctermbg=blue ctermfg=black guibg=NONE guifg=NONE
 
 " Avoid screen problem for (Meta) Left and (Meta) right
 "if $TERM =~ 'screen' 

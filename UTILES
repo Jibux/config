@@ -3,7 +3,7 @@
 #################
 
 # Modifier l'apparence
-lxappearance
+lxappearance ou gtk-chtheme
 
 # Modifier la vitesse du lecteur cd
 hdparm -E4 /dev/cdrom

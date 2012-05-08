@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# PREVENT FROM REBOOT RIGHT AFTER POWER OFF
+#echo `date '+%s' -d '+ 93 year'` > /sys/class/rtc/rtc0/wakealarm
+

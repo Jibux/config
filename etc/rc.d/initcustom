@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Load brightness
+/etc/acpi/loadBrightness.sh
+
+# NTP client if we are on line
+ping=`ping -c1 www.google.fr 2>&1 | wc -l`
+[ $ping -gt 1 ] && /etc/rc.d/ntpdate start
+

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "Putting up eth0 and start dhclient on it"
+
+ifconfig eth0 up && dhclient eth0
+

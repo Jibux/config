@@ -20,6 +20,10 @@ set autoread
 set title
 set t_Co=256 "set the 256 colors mode
 
+" Silence
+set visualbell
+set t_vb=
+
 "colorscheme camo
 
 " If using a dark background within the editing area and syntax highlighting

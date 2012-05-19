@@ -1,0 +1,24 @@
+[Default Applications]
+
+application/x-bittorrent=qBittorrent.desktop
+x-scheme-handler/magnet=qBittorrent.desktop
+
+application/pdf=AdobeReader.desktop
+application/vnd.adobe.xfdf=AdobeReader.desktop
+application/vnd.fdf=AdobeReader.desktop
+application/vnd.adobe.xdp+xml=AdobeReader.desktop
+application/vnd.adobe.pdx=AdobeReader.desktop
+application/fdf=AdobeReader.desktop
+application/xdp=AdobeReader.desktop
+application/xfdf=AdobeReader.desktop
+application/pdx=AdobeReader.desktop
+image/jpeg=gqview.desktop
+image/jpg=gqview.desktop
+image/png=gqview.desktop
+image/tif=gqview.desktop
+image/tiff=gqview.desktop
+application/msword=libreoffice.desktop
+application/vnd.ms-powerpoint=libreoffice.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice.desktop
+#text/html=chromium.desktop
+

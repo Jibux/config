@@ -1,0 +1,15 @@
+
+[Added Associations]
+x-scheme-handler/file=exo-file-manager.desktop
+x-scheme-handler/trash=exo-file-manager.desktop
+text/x-copying=xfce4-clipman-plugin.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-GG1ACW.desktop;
+x-scheme-handler/http=chromium.desktop;
+x-scheme-handler/https=chromium.desktop;
+video/x-msvideo=vlc.desktop;
+
+[Default Applications]
+text/x-copying=xfce4-clipman-plugin.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-GG1ACW.desktop
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop

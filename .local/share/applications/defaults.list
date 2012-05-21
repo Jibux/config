@@ -22,3 +22,6 @@ application/vnd.ms-powerpoint=libreoffice.desktop
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice.desktop
 #text/html=chromium.desktop
 
+video/x-ogm+ogg=vlc.desktop
+video/ogg=vlc.desktop
+video/x-msvideo=vlc.desktop

@@ -78,7 +78,7 @@ if ${use_color} ; then
 		PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
 	fi
 
-	alias ls='ls --color=auto'
+	alias ls='ls --color=auto -h --group-directories-first'
 	alias dir='dir --color=auto'
 	alias grep='grep --colour=auto'
 	alias fgrep='fgrep --color=auto'

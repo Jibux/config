@@ -130,6 +130,9 @@ alias l='ls -CF'
 
 alias open='xdg-open'
 
+alias ..='cd ..'
+alias cd..='cd ..'
+
 # Do not freeze/unfreeze when tipping ctrl+S and ctrl+Q in vim
 vim()
 {

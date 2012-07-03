@@ -122,7 +122,7 @@ PATH="${PATH}:/scripts:"
 
 alias vi='vim'
 
-alias sl='/bin/ls'
+alias sl='ls'
 alias ll='ls -l'
 alias la='ls -A'
 alias lla='ls -al'

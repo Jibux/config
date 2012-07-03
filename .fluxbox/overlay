@@ -1,0 +1,17 @@
+
+menu.title.font: tahoma-6:bold
+menu.frame.font: tahoma-6:bold
+
+toolbar.clock.font: tahoma-6:bold
+toolbar.workspace.font: tahoma-6:bold
+toolbar.iconbar.focused.font:		tahoma-6:bold
+toolbar.iconbar.unfocused.font:		tahoma-6
+
+window.font:				tahoma-6:bold
+
+window.title.height: 22
+
+#toolbar.borderWidth: {10}
+
+#background:
+

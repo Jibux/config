@@ -28,3 +28,4 @@ video/x-msvideo=vlc.desktop
 video/x-matroska=vlc.desktop
 application/vnd.oasis.opendocument.text=libreoffice.desktop
 video/mp4=vlc.desktop
+application/x-shellscript=gvim.desktop

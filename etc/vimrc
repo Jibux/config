@@ -18,7 +18,7 @@ runtime! archlinux.vim
 set nocompatible
 set autoread
 set title
-set t_Co=256 "set the 256 colors mode
+"set t_Co=256 "set the 256 colors mode
 
 " Silence
 set visualbell
@@ -116,7 +116,7 @@ set statusline+=[%{strlen(&ft)?&ft:'none'}, " file type
 set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
 set statusline+=%{&fileformat}] " file format
 set statusline+=%#warningmsg# " Syntastic
-set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set statusline+=%= " right alignment
 set statusline+=%-14.(%l,%c%V%)\ %<%P " offset

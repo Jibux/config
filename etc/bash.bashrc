@@ -100,6 +100,10 @@ PS4='+ '
 # Try to keep environment pollution down, EPA loves us.
 unset use_color safe_term match_lhs
 
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then 
+	. /etc/bash_completion
+fi
+
 #[ -r /etc/bash_completion ] && . /etc/bash_completion
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 

@@ -126,8 +126,10 @@ URxvt*termName:rxvt
 !URxvt*shading:2
 !URxvt*tintColor:#ffffff
 
+! Le bleu plus lisible
 !URxvt*color4: #71C5F4
 URxvt*color4: #0071ff
+URxvt*color12: #0071ff
 
 ! Utilisation de la vraie transparence
 URxvt*depth: 32
@@ -137,28 +139,26 @@ URxvt*depth: 32
 URxvt*foreground: #ffffff
 !URxvt*background: #101010
 URxvt*background: rgba:1000/1000/1000/FFFF
+
 !URxvt*color0: #101010
 !URxvt*color1: #f13a21
-!
 !URxvt*color2: #93f91d
-!
 !URxvt*color3: #ffd00a
-!
 !URxvt*color4: #004f9e
 !URxvt*color5: #ec0048
 !URxvt*color6: #2aa7e7
 !URxvt*color7: #f2f2f2
 !URxvt*color8: #1d202f
 !URxvt*color9: #ff361e
-!
 !URxvt*color11: #ffc005
-!
 !URxvt*color10: #93ff00
-!
 !URxvt*color12: #0071ff
 !URxvt*color13: #ef0051
 !URxvt*color14: #4bb8fd
 !URxvt*color15: #a020f0
+
+
+
 
 !# include "/home/gmarchan/.config/xdefaults/colors1"
 

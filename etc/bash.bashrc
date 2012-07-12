@@ -138,7 +138,7 @@ alias ..='cd ..'
 alias cd..='cd ..'
 
 # Do not freeze/unfreeze when tipping ctrl+S and ctrl+Q in vim
-vim()
+vi()
 {
 	local STTYOPTS="$(stty --save)"
 	# ctrl+S freeze
@@ -146,7 +146,7 @@ vim()
 	# ctrl+Q unfreeze
 	stty stop '' -ixon
 	# -p added to always open with tabs
-	command vim -p "$@"
+	command vi -p "$@"
 	stty "$STTYOPTS"
 }
 

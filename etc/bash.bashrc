@@ -124,7 +124,7 @@ PATH="${PATH}:/scripts:"
 # Keep bashrc settings SECURE ???
 #alias sudo='A=`alias` sudo '
 
-alias vi='vim'
+#alias vi='vim'
 
 alias sl='ls'
 alias ll='ls -l'

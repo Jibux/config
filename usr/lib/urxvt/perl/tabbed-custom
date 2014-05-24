@@ -349,7 +349,7 @@ sub tab_key_press {
    my ($self, $tab, $event, $keysym, $str) = @_;
 
    if ($event->{state} & urxvt::ShiftMask) {
-	   if ($event->{state} & urxvt::ControlMask) {
+	   if ($event->{state} & urxvt::Mod1Mask) {
 		   if ($keysym == 0xff51 || $keysym == 0xff53) {
 			   my ($idx1) = grep $self->{tabs}[$_] == $tab, 0 .. $#{ $self->{tabs} };
 			   my  $idx2  = ($idx1 + ($keysym == 0xff51 ? -1 : +1)) % @{ $self->{tabs} };

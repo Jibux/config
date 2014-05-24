@@ -92,8 +92,10 @@ URxvt*cutchars: "(),<>[]{}|'
 !URxvt*keysum.S-Right: \033[
 
 !Configure correctement M-Left et M-Right sous rxvt pour sauter de mots en mots
-URxvt*keysym.Meta-Left: \033[1;5D
-URxvt*keysym.Meta-Right: \033[1;5C
+#URxvt*keysym.Meta-Left: \033[1;5D
+#URxvt*keysym.Meta-Right: \033[1;5C
+URxvt*keysym.Control-Left: \033[1;5D
+URxvt*keysym.Control-Right: \033[1;5C
 
 ! Active ou pas la transparence
 URxvt*keysym.Control-Meta-t: command:\033]11;[90]#000000\007
@@ -163,6 +165,7 @@ URxvt*background: rgba:1000/1000/1000/FFFF
 !# include "/home/gmarchan/.config/xdefaults/colors1"
 
 ! Désactive les 'KEYCAP PICTURE INSERT MODE'
+URxvt*iso14755: false
 URxvt*iso14755_52: false
 
 URxvt.buffered: true
@@ -181,7 +184,8 @@ URxvt*scrollTtyKeypress:    true
 
 !URxvt.title: 
 urxvt*perl-lib:     /usr/lib/urxvt/perl
-URxvt.perl-ext-common: default,tabbed,matcher,clipboard
+!URxvt.perl-ext-common: default,tabbed,matcher,clipboard
+URxvt.perl-ext-common: default,tabbed-custom,matcher
 !,vtwheel
 URxvt.urlLauncher     : /usr/bin/chromium
 URxvt.matcher.button  : 1

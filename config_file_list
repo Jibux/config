@@ -1,0 +1,12 @@
+0|false|$SCRIPT_HOME_DIR/config_setup/vim/solarized/vim-colors-solarized/colors/solarized.vim|$HOME/.vim/colors/solarized.vim
+1|true|$SCRIPT_HOME_DIR/config_setup/tmux|$HOME/.tmux/plugins
+0|true|$SCRIPT_ROOT_PATH/bashrc|$HOME/.bashrc
+0|false|$SCRIPT_ROOT_PATH/vimrc|$HOME/.vimrc
+1|false|$SCRIPT_ROOT_PATH/tmux.conf|$HOME/.tmux.conf
+1|false|$SCRIPT_ROOT_PATH/screenrc|$HOME/.screenrc
+1|false|$SCRIPT_ROOT_PATH/xdefaults|$HOME/.config/xdefaults
+1|false|$SCRIPT_ROOT_PATH/Xdefaults|$HOME/.Xdefaults
+1|false|$SCRIPT_ROOT_PATH/moc/config|$HOME/.moc/config
+1|false|$SCRIPT_ROOT_PATH/moc/themes/custom_theme|$HOME/.moc/themes/custom_theme
+2|false|$SCRIPT_ROOT_PATH/usr/lib/urxvt/perl/clipboard|/usr/lib/urxvt/perl/clipboard
+2|false|$SCRIPT_ROOT_PATH/usr/lib/urxvt/perl/tabbed-custom|/usr/lib/urxvt/perl/tabbed-custom

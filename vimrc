@@ -8,7 +8,7 @@
 
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages.
-runtime! archlinux.vim
+" runtime! archlinux.vim
 " runtime! vimrc_example.vim
 
 " If you prefer the old-style vim functionality, add 'runtime! vimrc_example.vim'
@@ -42,7 +42,6 @@ if has("autocmd")
 	filetype plugin indent on
 endif
 
-filetype plugin on
 syntax on
 
 set backspace=indent,eol,start
@@ -249,4 +248,15 @@ if has("spell")
 endif
 
 syntax keyword SpellBad ERROR
+
+autocmd BufNewFile,BufRead *.vue set syntax=html
+autocmd BufNewFile,BufRead *.ts set syntax=javascript
+
+" https://github.com/altercation/solarized/tree/master/vim-colors-solarized
+"set t_Co=16
+set background=dark " dark | light "
+" When using a terminal without solarized theme
+" let g:solarized_termcolors=256
+colorscheme solarized
+
 

@@ -272,8 +272,8 @@ stty -ixon
 
 alias connect_cloud="pcmanfm davs://cloud.jibux.info/remote.php/webdav"
 
-#~/bin/start_ssh.sh
-#source ~/.tmp/ssh_vars
+~/bin/ssh_agent_custom.sh
+[ -f "~/.tmp/ssh_vars" ] && source ~/.tmp/ssh_vars
 
 PATH=$PATH:~/bin
 export PATH=$PATH:/opt/android-studio/gradle/gradle-4.6/bin/

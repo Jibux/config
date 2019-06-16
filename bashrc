@@ -103,16 +103,23 @@ fi
 ## Uncomment to disable git info
 #POWERLINE_GIT=0
 
+# Colors
+COLOR_RESET='\[\033[m\]'
+COLOR_CWD=${COLOR_CWD:-'\[\033[0;34m\]'} # blue
+COLOR_GIT=${COLOR_GIT:-'\[\033[0;36m\]'} # cyan
+COLOR_SUCCESS=${COLOR_SUCCESS:-'\[\033[0;32m\]'} # green
+COLOR_FAILURE=${COLOR_FAILURE:-'\[\033[0;31m\]'} # red
+
+# Symbols
+SYMBOL_GIT_BRANCH=${SYMBOL_GIT_BRANCH:-⑂}
+SYMBOL_GIT_MODIFIED=${SYMBOL_GIT_MODIFIED:-*}
+SYMBOL_GIT_PUSH=${SYMBOL_GIT_PUSH:-↑}
+SYMBOL_GIT_PULL=${SYMBOL_GIT_PULL:-↓}
+
 __git_info() { 
     [[ $POWERLINE_GIT = 0 ]] && return # disabled
     hash git 2>/dev/null || return # git not found
     local git_eng="env LANG=C git"   # force git output in English to make our work easier
-
-	# Symbols
-	SYMBOL_GIT_BRANCH=${SYMBOL_GIT_BRANCH:-⑂}
-	SYMBOL_GIT_MODIFIED=${SYMBOL_GIT_MODIFIED:-*}
-	SYMBOL_GIT_PUSH=${SYMBOL_GIT_PUSH:-↑}
-	SYMBOL_GIT_PULL=${SYMBOL_GIT_PULL:-↓}
 
     # get current branch name
     local ref=$($git_eng symbolic-ref --short HEAD 2>/dev/null)
@@ -145,12 +152,6 @@ __git_info() {
 }
 
 ps1_color() {
-	# Colors
-	COLOR_RESET='\[\033[m\]'
-	COLOR_CWD=${COLOR_CWD:-'\[\033[0;34m\]'} # blue
-	COLOR_GIT=${COLOR_GIT:-'\[\033[0;36m\]'} # cyan
-	COLOR_SUCCESS=${COLOR_SUCCESS:-'\[\033[0;32m\]'} # green
-	COLOR_FAILURE=${COLOR_FAILURE:-'\[\033[0;31m\]'} # red
 
     # Check the exit code of the previous command and display different
     # colors in the prompt accordingly. 

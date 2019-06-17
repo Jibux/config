@@ -272,9 +272,6 @@ stty -ixon
 
 alias connect_cloud="pcmanfm davs://cloud.jibux.info/remote.php/webdav"
 
-~/bin/ssh_agent_custom.sh
-[ -f "~/.tmp/ssh_vars" ] && source ~/.tmp/ssh_vars
-
 PATH=$PATH:~/bin
 export PATH=$PATH:/opt/android-studio/gradle/gradle-4.6/bin/
 
@@ -283,6 +280,9 @@ xset b off
 alias darktable="LANGUAGE=fr_FR.UTF-8 && darktable"
 
 export ANDROID_HOME=/opt/Android/Sdk
+
+[ -f "$HOME/bin/ssh_agent_custom.sh" ] && $HOME/bin/ssh_agent_custom.sh
+[ -f "$HOME/.tmp/ssh_vars" ] && source ~/.tmp/ssh_vars
 
 umask 077
 

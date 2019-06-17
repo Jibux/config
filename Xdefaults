@@ -155,7 +155,7 @@ URxvt*tabbed.tab-bg: 0
 ! Color theme
 
 ! Source http://github.com/altercation/solarized
-#include "/home/jbh/.config/xdefaults/themes/solarized"
+#include ".config/xdefaults/themes/solarized"
 ! Make solarized theme work with URxvt
 URxvt.intensityStyles: false
 

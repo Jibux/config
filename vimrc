@@ -24,6 +24,8 @@ set title
 set visualbell
 set t_vb=
 
+execute pathogen#infect()
+
 "colorscheme camo
 
 " If using a dark background within the editing area and syntax highlighting
@@ -156,22 +158,26 @@ noremap <C-q> :qa<CR>
 vnoremap <C-q> <C-C>:qa<CR>
 inoremap <C-q> <C-O>:qa<CR>
 
+" Map ctrl+x to quit current file
+noremap <C-x> :q<CR>
+
 " Shortcut to save/restore sessions
 nnoremap <F5> :mksession! ~/.vim/sessions/
 nnoremap <F6> :so ~/.vim/sessions/
 
 set pastetoggle=<F1>
+"set clipboard=unnamedplus
+
 
 " Copy/cut/past in visual mode using clipboard
-vnoremap <C-c> "+y
-vnoremap <C-x> "+d
-vnoremap <C-v> "+p
+vnoremap <C-c> yy
+vnoremap <C-x> dd
+vnoremap <C-v> <C-C>p<CR>
 
 " Tabs
 " ctrl+page-up or ctrl+page-down
 noremap [6^ :tabnext<CR>
 noremap [5^ :tabprevious<CR>
-nnoremap <C-w> :q<CR>
 nnoremap <C-t> :tabnew<CR>
 
 " Source a global configuration file if available

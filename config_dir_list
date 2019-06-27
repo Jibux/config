@@ -1,4 +1,6 @@
 0|$HOME/.vim/colors
+0|$HOME/.vim/bundle
+0|$HOME/.vim/autoload
 1|$HOME/.moc/themes
 1|$HOME/.tmux
 1|$HOME/.tmp

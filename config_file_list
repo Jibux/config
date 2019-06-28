@@ -1,3 +1,6 @@
+1|false|$SCRIPT_HOME_DIR/config_setup/urxvt/urxvt-font-size/font-size|$HOME/.urxvt/ext/font-size
+1|false|$SCRIPT_ROOT_PATH/urxvt/ext/clipboard|$HOME/.urxvt/ext/clipboard
+1|false|$SCRIPT_ROOT_PATH/urxvt/ext/tabbed-custom|$HOME/.urxvt/ext/tabbed-custom
 0|false|$SCRIPT_HOME_DIR/config_setup/vim/solarized/vim-colors-solarized/colors/solarized.vim|$HOME/.vim/colors/solarized.vim
 0|false|$SCRIPT_HOME_DIR/config_setup/vim/vim-pathogen/autoload/pathogen.vim|$HOME/.vim/autoload/pathogen.vim
 0|false|$SCRIPT_HOME_DIR/config_setup/vim/nerdtree|$HOME/.vim/bundle/nerdtree
@@ -10,5 +13,3 @@
 1|false|$SCRIPT_ROOT_PATH/Xdefaults|$HOME/.Xdefaults
 1|false|$SCRIPT_ROOT_PATH/moc/config|$HOME/.moc/config
 1|false|$SCRIPT_ROOT_PATH/moc/themes/custom_theme|$HOME/.moc/themes/custom_theme
-2|false|$SCRIPT_ROOT_PATH/usr/lib/urxvt/perl/clipboard|/usr/lib/urxvt/perl/clipboard
-2|false|$SCRIPT_ROOT_PATH/usr/lib/urxvt/perl/tabbed-custom|/usr/lib/urxvt/perl/tabbed-custom

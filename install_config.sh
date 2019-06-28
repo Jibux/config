@@ -26,10 +26,10 @@ backup_file()
 {
 	local file=$1
 	local backup_suffix="bkp_by_script"
-	echo "Backup $file"
 	[[ ! -f "$file" && ! -d "$file" ]] && return 0
 	[ -h "$file" ] && return 0
 	[[ -f "$file.$backup_suffix" || -d "$file.$backup_suffix" ]] && return 0
+	echo "Backup $file"
 	run_command "mv '$file' '$file.$backup_suffix'"
 }
 
@@ -40,12 +40,12 @@ handle_user_policy()
 
 	if [ "${UID}" != "0" ]; then
 		if [ "$user_policy" = "$POLICY_ROOT_ONLY" ]; then
-			echo "$INFO_PREFIX: The file/directory '$file', should only be setup as root"
+			[ "$VERBOSE" = "true" ] && echo "$INFO_PREFIX: The file/directory '$file', should only be setup as root"
 			return 1
 		fi
 	else 
 		if [ "$user_policy" = "$POLICY_USER_ONLY" ]; then
-			echo "$INFO_PREFIX: The file/directory '$file', should only be setup as normal user"
+			[ "$VERBOSE" = "true" ] && echo "$INFO_PREFIX: The file/directory '${file//\/root/\$HOME}', should only be setup as normal user"
 			return 1
 		fi
 	fi
@@ -99,7 +99,7 @@ setup_config_file()
 	if [[ ! -d "$linked_file" || -h "$linked_file" ]]; then
 		run_command "rm -f '$linked_file'"
 	else
-		run_command "rmdir '$linked_file'"
+		run_command "rm -rf '$linked_file'"
 	fi
 	
 	if [ "${UID}" != "0" ]; then
@@ -107,9 +107,15 @@ setup_config_file()
 		run_command "ln -s '$source_file' '$linked_file'"
 	else
 		echo "$INFO_PREFIX: Copying '$source_file' to '$linked_file'"
-		run_command "cp -f '$source_file' '$linked_file'"
+		if [ -d "$source_file" ]; then
+			[ "$VERBOSE" = "true" ] && echo "'$source_file' is a directory => 'rsync'"
+			run_command "rsync -rlptD '$source_file/' '$linked_file/'"
+		else
+			[ "$VERBOSE" = "true" ] && echo "'$source_file' is a file => 'cp'"
+			run_command "cp -f '$source_file' '$linked_file'"
+		fi
 		# If we only run this as root, we should make it readable for everyone
-		[ "$user_policy" = "$POLICY_ROOT_ONLY" ] && run_command "chmod go+rX '$linked_file'"
+		[ "$user_policy" = "$POLICY_ROOT_ONLY" ] && run_command "chmod -R go+rX '$linked_file'"
 	fi
 }
 

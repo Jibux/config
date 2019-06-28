@@ -158,8 +158,8 @@ noremap <C-q> :qa<CR>
 vnoremap <C-q> <C-C>:qa<CR>
 inoremap <C-q> <C-O>:qa<CR>
 
-" Map ctrl+x to quit current file
-noremap <C-x> :q<CR>
+" Map ctrl+? to quit current file
+"noremap <C-?> :q<CR>
 
 " Shortcut to save/restore sessions
 nnoremap <F5> :mksession! ~/.vim/sessions/

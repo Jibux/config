@@ -139,8 +139,8 @@ while getopts dvh name; do
 	esac
 done
 
-SCRIPT_ROOT_PATH="$(dirname $(realpath -s "$0"))"
-SCRIPT_HOME_DIR="/home/$(ls -ld "$0" | awk '{print $3}')"
+SCRIPT_ROOT_PATH="$(dirname "$(realpath -s "$0")")"
+SCRIPT_HOME_DIR=$(eval echo "~$(stat -c %U "$0")")
 INFO_PREFIX="Running as ${USER}"
 POLICY_BOTH=0
 POLICY_USER_ONLY=1

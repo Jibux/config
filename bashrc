@@ -117,13 +117,16 @@ SYMBOL_GIT_MODIFIED=${SYMBOL_GIT_MODIFIED:-*}
 SYMBOL_GIT_PUSH=${SYMBOL_GIT_PUSH:-↑}
 SYMBOL_GIT_PULL=${SYMBOL_GIT_PULL:-↓}
 
-__git_info() { 
+__git_info()
+{
     [[ $POWERLINE_GIT = 0 ]] && return # disabled
     hash git 2>/dev/null || return # git not found
     local git_eng="env LANG=C git"   # force git output in English to make our work easier
 
     # get current branch name
-    local ref=$($git_eng symbolic-ref --short HEAD 2>/dev/null)
+    local ref
+
+	ref=$($git_eng symbolic-ref --short HEAD 2>/dev/null)
 
     if [[ -n "$ref" ]]; then
         # prepend branch symbol
@@ -149,11 +152,11 @@ __git_info() {
     done < <($git_eng status --porcelain --branch 2>/dev/null)  # note the space between the two <
 
     # print the git branch segment without a trailing newline
-    printf " $ref$marks"
+    printf " %s" "$ref$marks"
 }
 
-ps1_color() {
-
+ps1_color()
+{
     # Check the exit code of the previous command and display different
     # colors in the prompt accordingly. 
     if [ $? -eq 0 ]; then
@@ -165,6 +168,7 @@ ps1_color() {
     local cwd="$COLOR_CWD\w$COLOR_RESET"
 	cwd='${debian_chroot:+($debian_chroot)}'"$COLOR_USER"'\u\[\033[01;34m\]@\[\033[01;33m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]'
 
+	local git
     # Bash by default expands the content of PS1 unless promptvars is disabled.
     # We must use another layer of reference to prevent expanding any user
     # provided strings, which would cause security issues.
@@ -172,20 +176,21 @@ ps1_color() {
     # Related fix in git-bash: https://github.com/git/git/blob/9d77b0405ce6b471cb5ce3a904368fc25e55643d/contrib/completion/git-prompt.sh#L324
     if shopt -q promptvars; then
         __powerline_git_info="$(__git_info)"
-        local git="$COLOR_GIT\${__powerline_git_info}$COLOR_RESET"
+        git="$COLOR_GIT\${__powerline_git_info}$COLOR_RESET"
     else
         # promptvars is disabled. Avoid creating unnecessary env var.
-        local git="$COLOR_GIT$(__git_info)$COLOR_RESET"
+        git="$COLOR_GIT$(__git_info)$COLOR_RESET"
     fi
 
-	local format_date="[$(date '+%d/%m/%y %H:%M:%S')]"
+	local format_date
+	format_date="[$(date '+%d/%m/%y %H:%M:%S')]"
 	
 	PS1L=$cwd$git
 	PS1R=$format_date
 	# Use compensate variable if PS1R has some formating like colors
 	compensate=0
 
-	PS1_FINAL=$(printf "%*s\r%s" "$(($COLUMNS+${compensate}))" "$PS1R" "$PS1L")
+	PS1_FINAL=$(printf "%*s\r%s" "$((COLUMNS+compensate))" "$PS1R" "$PS1L")
     PS1="$WINDOW_TITLE$PS1_FINAL$symbol"
 }
 
@@ -196,7 +201,7 @@ if [ "$color_prompt" = yes ]; then
 	PROMPT_COMMAND="ps1_color${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 	
 	if [ -x /usr/bin/dircolors ]; then
-		test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+		test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)"
 
 		alias_color='--color=auto'
 
@@ -229,21 +234,6 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-
-# Do not freeze/unfreeze when tipping ctrl+S and ctrl+Q in vim
-vi()
-{
-	local STTYOPTS="$(stty --save)"
-	# ctrl+S freeze
-	stty stop '' -ixoff
-	# ctrl+Q unfreeze
-	stty stop '' -ixon
-	# -p added to always open with tabs
-	command vi -p "$@"
-	stty "$STTYOPTS"
-}
-
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -268,22 +258,34 @@ if ! shopt -oq posix; then
 	fi
 fi
 
+# Do not freeze/unfreeze when tipping ctrl+S and ctrl+Q in vim
+vi()
+{
+	local STTYOPTS
+	STTYOPTS="$(stty --save)"
+	# ctrl+S freeze
+	stty stop '' -ixoff
+	# ctrl+Q unfreeze
+	stty stop '' -ixon
+	# -p added to always open with tabs
+	command vi -p "$@"
+	stty "$STTYOPTS"
+}
+
 stty -ixon
 #bind 'Control-s: '
 
+[ -n "$DISPLAY" ] && xset b off
+
 alias connect_cloud="pcmanfm davs://cloud.jibux.info/remote.php/webdav"
+alias darktable="LANGUAGE=fr_FR.UTF-8 && darktable"
 
 PATH=$PATH:~/bin
 export PATH=$PATH:/opt/android-studio/gradle/gradle-4.6/bin/
-
-xset b off
-
-alias darktable="LANGUAGE=fr_FR.UTF-8 && darktable"
-
 export ANDROID_HOME=/opt/Android/Sdk
 
-[ -f "$HOME/bin/ssh_agent_custom.sh" ] && $HOME/bin/ssh_agent_custom.sh
-[ -f "$HOME/.tmp/ssh_vars" ] && source ~/.tmp/ssh_vars
+[ -f "$HOME/bin/ssh_agent_custom.sh" ] && "$HOME/bin/ssh_agent_custom.sh"
+[[ -z "$SSH_AGENT_PID" && -f "$HOME/.tmp/ssh_vars" ]] && source "$HOME/.tmp/ssh_vars"
 
 umask 077
 

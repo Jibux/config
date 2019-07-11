@@ -258,20 +258,7 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-# Do not freeze/unfreeze when tipping ctrl+S and ctrl+Q in vim
-vi()
-{
-	local STTYOPTS
-	STTYOPTS="$(stty --save)"
-	# ctrl+S freeze
-	stty stop '' -ixoff
-	# ctrl+Q unfreeze
-	stty stop '' -ixon
-	# -p added to always open with tabs
-	command vi -p "$@"
-	stty "$STTYOPTS"
-}
-
+# Do not freeze/unfreeze when tipping Ctrl+s and Ctrl+q
 stty -ixon
 #bind 'Control-s: '
 

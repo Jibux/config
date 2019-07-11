@@ -146,6 +146,8 @@ POLICY_BOTH=0
 POLICY_USER_ONLY=1
 POLICY_ROOT_ONLY=2
 
+export SCRIPT_ROOT_PATH SCRIPT_HOME_DIR POLICY_BOTH POLICY_USER_ONLY POLICY_ROOT_ONLY
+
 while IFS= read -r line; do
 	user_policy="${line%|*}"
 	dir="$(eval echo "${line#*|}")"

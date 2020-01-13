@@ -267,6 +267,8 @@ stty -ixon
 alias connect_cloud="pcmanfm davs://cloud.jibux.info/remote.php/webdav"
 alias darktable="LANGUAGE=fr_FR.UTF-8 && darktable"
 
+[ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
+
 PATH=$PATH:~/bin
 export PATH=$PATH:/opt/android-studio/gradle/gradle-4.6/bin/
 export ANDROID_HOME=/opt/Android/Sdk

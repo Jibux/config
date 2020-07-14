@@ -50,10 +50,10 @@ set backspace=indent,eol,start
 
 "let loaded_minibufexplorer = 0
 
-"let g:miniBufExplMapWindowNavVim = 1 
-"let g:miniBufExplMapWindowNavArrows = 1 
-"let g:miniBufExplMapCTabSwitchBufs = 1 
-"let g:miniBufExplModSelTarget = 1 
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplModSelTarget = 1
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
@@ -141,12 +141,12 @@ hi Todo cterm=NONE ctermbg=white ctermfg=black guibg=NONE guifg=NONE
 hi MyTodo cterm=NONE ctermbg=blue ctermfg=black guibg=NONE guifg=NONE
 
 " Avoid screen problem for (Meta) Left and (Meta) right
-"if $TERM =~ 'screen' 
+"if $TERM =~ 'screen'
 "	nmap [1;5D B
 "	nmap [1;5C W
 "	inoremap <Esc>[1;5C <C-O>W
 "	inoremap <Esc>[1;5D <C-O>B
-"endif 
+"endif
 
 " Map ctrl+s for saving
 noremap <C-s> :update<CR>

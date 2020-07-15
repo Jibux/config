@@ -83,9 +83,9 @@ set noequalalways
 " Indent
 set autoindent
 set smartindent
-set softtabstop=4
-set tabstop=4
-set shiftwidth=4
+set softtabstop=8
+set tabstop=8
+set shiftwidth=8
 set noexpandtab
 " In visual, keep the indented bloc
 vnoremap < <gv
@@ -200,8 +200,9 @@ if has ('folding')
 endif
 
 " Automatically load and save the folds
-autocmd BufWinLeave * if expand("%") != "" | mkview | endif
-autocmd BufWinEnter * if expand("%") != "" | loadview | endif
+" Edit: removed that because it saves other settings
+"autocmd BufWinLeave * if expand("%") != "" | mkview | endif
+"autocmd BufWinEnter * if expand("%") != "" | loadview | endif
 
 " Fold Toggle
 inoremap <F2> <C-O>za
@@ -258,11 +259,14 @@ syntax keyword SpellBad ERROR
 autocmd BufNewFile,BufRead *.vue set syntax=html
 autocmd BufNewFile,BufRead *.ts set syntax=javascript
 
+" Color column
+"set colorcolumn=81
+call matchadd('ColorColumn', '\%81v', 100) "set column nr
+
 " https://github.com/altercation/solarized/tree/master/vim-colors-solarized
 "set t_Co=16
 set background=dark " dark | light "
 " When using a terminal without solarized theme
 " let g:solarized_termcolors=256
 colorscheme solarized
-
 

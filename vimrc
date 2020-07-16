@@ -260,8 +260,8 @@ autocmd BufNewFile,BufRead *.vue set syntax=html
 autocmd BufNewFile,BufRead *.ts set syntax=javascript
 
 " Color column
-"set colorcolumn=81
-call matchadd('ColorColumn', '\%81v', 100) "set column nr
+set colorcolumn=81
+"call matchadd('ColorColumn', '\%81v', 100) "set column nr
 
 " https://github.com/altercation/solarized/tree/master/vim-colors-solarized
 "set t_Co=16

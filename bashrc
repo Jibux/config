@@ -158,7 +158,7 @@ __git_info()
 ps1_color()
 {
     # Check the exit code of the previous command and display different
-    # colors in the prompt accordingly. 
+    # colors in the prompt accordingly.
     if [ $? -eq 0 ]; then
         local symbol="$COLOR_SUCCESS\n$PS_SYMBOL $COLOR_RESET"
     else
@@ -184,7 +184,7 @@ ps1_color()
 
 	local format_date
 	format_date="[$(date '+%d/%m/%y %H:%M:%S')]"
-	
+
 	PS1L=$cwd$git
 	PS1R=$format_date
 	# Use compensate variable if PS1R has some formating like colors
@@ -199,7 +199,7 @@ alias_color=''
 if [ "$color_prompt" = yes ]; then
 
 	PROMPT_COMMAND="ps1_color${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
-	
+
 	if [ -x /usr/bin/dircolors ]; then
 		test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)"
 

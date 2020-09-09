@@ -5,6 +5,7 @@
 0|false|$SCRIPT_HOME_DIR/config_setup/vim/vim-pathogen/autoload/pathogen.vim|$HOME/.vim/autoload/pathogen.vim
 0|false|$SCRIPT_HOME_DIR/config_setup/vim/nerdtree|$HOME/.vim/bundle/nerdtree
 0|false|$SCRIPT_HOME_DIR/config_setup/vim/vim-better-whitespace|$HOME/.vim/bundle/vim-better-whitespace
+0|false|$SCRIPT_HOME_DIR/config_setup/vim/vim-fakeclip|$HOME/.vim/bundle/vim-fakeclip
 1|true|$SCRIPT_HOME_DIR/config_setup/tmux|$HOME/.tmux/plugins
 0|true|$SCRIPT_ROOT_PATH/bashrc|$HOME/.bashrc
 0|false|$SCRIPT_ROOT_PATH/vimrc|$HOME/.vimrc

@@ -170,9 +170,10 @@ set pastetoggle=<F1>
 
 
 " Copy/cut/past in visual mode using clipboard
-vnoremap <C-c> "+y
+vmap <C-c> "+y
 vnoremap <C-x> dd
 vnoremap <C-v> <C-C>p<CR>
+
 
 " Tabs
 " ctrl+page-up or ctrl+page-down

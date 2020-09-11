@@ -87,6 +87,10 @@ set softtabstop=8
 set tabstop=8
 set shiftwidth=8
 set noexpandtab
+
+autocmd BufNewFile,BufRead *.y*ml setlocal expandtab softtabstop=2 tabstop=2 shiftwidth=2
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+
 " In visual, keep the indented bloc
 vnoremap < <gv
 vnoremap > >gv

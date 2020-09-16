@@ -234,6 +234,9 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
+# SSH alias
+alias sshr='ssh -l root'
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -255,6 +258,12 @@ if ! shopt -oq posix; then
 		. /usr/share/bash-completion/bash_completion
 	elif [ -f /etc/bash_completion ]; then
 		. /etc/bash_completion
+	fi
+
+	COMPLETE_ALIAS="$HOME/config_setup/bash/complete-alias/complete_alias"
+	if [ -f "$COMPLETE_ALIAS" ]; then
+		. "$COMPLETE_ALIAS"
+		complete -F _complete_alias sshr
 	fi
 fi
 

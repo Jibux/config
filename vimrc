@@ -24,6 +24,10 @@ set title
 set visualbell
 set t_vb=
 
+" Before plugins are loaded
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 1
+
 execute pathogen#infect()
 
 "colorscheme camo
@@ -88,8 +92,10 @@ set tabstop=8
 set shiftwidth=8
 set noexpandtab
 
-autocmd BufNewFile,BufRead *.y*ml setlocal expandtab softtabstop=2 tabstop=2 shiftwidth=2
 autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml "foldmethod=indent
+autocmd FileType yaml setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
 
 " In visual, keep the indented bloc
 vnoremap < <gv

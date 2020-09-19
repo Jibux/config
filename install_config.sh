@@ -43,7 +43,7 @@ handle_user_policy()
 			[ "$VERBOSE" = "true" ] && echo "$INFO_PREFIX: The file/directory '$file', should only be setup as root"
 			return 1
 		fi
-	else 
+	else
 		if [ "$user_policy" = "$POLICY_USER_ONLY" ]; then
 			[ "$VERBOSE" = "true" ] && echo "$INFO_PREFIX: The file/directory '${file//\/root/\$HOME}', should only be setup as normal user"
 			return 1
@@ -57,9 +57,8 @@ setup_config_dir()
 {
 	local dir=$1
 	local user_policy=$2
-	
-	handle_user_policy "$user_policy" "$dir"
-	[ $? != "0" ] && return 0
+
+	handle_user_policy "$user_policy" "$dir" || return 0
 
 	run_command "mkdir -p '$dir'"
 }
@@ -71,8 +70,7 @@ setup_setup_list()
 	local command_to_execute=$3
 	local user_policy=$4
 
-	handle_user_policy "$user_policy" "$path/$name"
-	[ $? != "0" ] && return 0
+	handle_user_policy "$user_policy" "$path/$name" || return 0
 
 	if [ ! -d "$path/$name" ]; then
 		echo "Downloading $name plugin/theme into $path/$name"
@@ -89,8 +87,7 @@ setup_config_file()
 	local user_policy=$3
 	local backup_policy=$4
 
-	handle_user_policy "$user_policy" "$linked_file"
-	[ $? != "0" ] && return 0
+	handle_user_policy "$user_policy" "$linked_file" || return 0
 
 	if [ "$backup_policy" = "true" ]; then
 		backup_file "$linked_file"
@@ -101,7 +98,7 @@ setup_config_file()
 	else
 		run_command "rm -rf '$linked_file'"
 	fi
-	
+
 	if [ "${UID}" != "0" ]; then
 		echo "$INFO_PREFIX: Linking '$linked_file' to '$source_file'"
 		run_command "ln -s '$source_file' '$linked_file'"
@@ -173,7 +170,7 @@ while IFS= read -r line; do
 	line="${line#*|}"
 	source_file="$(eval echo "${line%|*}")"
 	linked_file="$(eval echo "${line#*|}")"
-	
+
 	setup_config_file "$source_file" "$linked_file" "$user_policy" "$backup_policy"
 done < config_file_list
 

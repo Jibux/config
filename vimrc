@@ -181,7 +181,7 @@ set pastetoggle=<F1>
 
 " Copy/cut/past in visual mode using clipboard
 vnoremap <C-c> "+y
-vnoremap <C-x> dd
+vnoremap <C-x> "+d
 inoremap <C-v> <C-c>"+pa
 vnoremap <C-v> <C-c>"+p
 

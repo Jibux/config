@@ -277,14 +277,16 @@ stty -ixon
 alias connect_cloud="pcmanfm davs://cloud.jibux.info/remote.php/webdav"
 alias darktable="LANGUAGE=fr_FR.UTF-8 && darktable"
 
-[ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
+[ -f "$HOME/.bash_aliases" ] && . "$HOME/.bash_aliases"
 
 PATH=$PATH:~/bin
 export PATH=$PATH:/opt/android-studio/gradle/gradle-4.6/bin/
 export ANDROID_HOME=/opt/Android/Sdk
 
 [ -f "$HOME/bin/ssh_agent_custom.sh" ] && "$HOME/bin/ssh_agent_custom.sh"
-[[ -z "$SSH_AGENT_PID" && -f "$HOME/.tmp/ssh_vars" ]] && source "$HOME/.tmp/ssh_vars"
+[[ -z "$SSH_AGENT_PID" && -f "$HOME/.tmp/ssh_vars" ]] && . "$HOME/.tmp/ssh_vars"
 
 umask 077
+
+[ -f "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local"
 

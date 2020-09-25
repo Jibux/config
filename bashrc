@@ -237,6 +237,7 @@ alias mv='mv -i'
 
 # SSH alias
 alias sshr='ssh -l root'
+alias scpr='scp -o "User=root"'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert

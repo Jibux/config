@@ -12,6 +12,7 @@
 	last = log -1 HEAD
 	unstage = reset HEAD --
 	pushu = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
+	mm = "!br=$(git rev-parse --abbrev-ref HEAD) && [ \"$br\" != \"master\" ] && git co master && git pull && git co $br && git rb master && git co master && git merge $br && git push origin master && git br -D $br && git push origin :$br"
 	pushf = push -f
 	rb = rebase
 	rba = rebase --abort

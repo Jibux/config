@@ -1,0 +1,64 @@
+[core]
+	editor = vim
+	pager = diff-so-fancy | less -RFX
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	cia = commit --amend
+	ciaa = commit --amend -a
+	cif = commit --fixup
+	st = status
+	last = log -1 HEAD
+	unstage = reset HEAD --
+	pushu = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
+	pushf = push -f
+	rb = rebase
+	rba = rebase --abort
+	rbc = rebase --continue
+	rbs = rebase --skip
+	rst = reset
+	sh = show
+	cpk = cherry-pick
+	cpka = cherry-pick --abort
+	cpkc = cherry-pick --continue
+	gr = grep
+	rv = revert
+	l = log --graph --pretty=format:'%Cred%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	la = log --graph --pretty=format:'%Cred%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all
+	las = log --oneline --graph --all --decorate --simplify-by-decoration
+	diffc = diff --cached
+	diffw = diff -w
+	diffwo = diff --word-diff
+[pull]
+	rebase = true
+[rerere]
+	enabled = true
+[push]
+	default = simple
+[fetch]
+	prune = true
+[rebase]
+	autosquash = true
+#[pager]
+#	log = diff-so-fancy | less --tabs=2 -RFX
+#	show = diff-so-fancy | less --tabs=2 -RFX
+#	diff = diff-so-fancy | less --tabs=2 -RFX
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+
+# vi:syntax=gitconfig
+

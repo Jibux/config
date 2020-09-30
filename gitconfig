@@ -4,6 +4,8 @@
 [alias]
 	co = checkout
 	br = branch
+	bra = branch -a
+	brr = branch -r
 	ci = commit
 	cia = commit --amend
 	ciaa = commit --amend -a

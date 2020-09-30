@@ -103,7 +103,7 @@ URxvt*scrollTtyKeypress:    true
 
 
 ! Cut chars
-URxvt*cutchars: ""''(),<>[]{}|:
+URxvt*cutchars: ""''(),<>[]{}|:⑂
 
 ! Perl extensions
 urxvt*perl-lib:     /usr/lib/urxvt/perl

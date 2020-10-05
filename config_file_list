@@ -2,10 +2,7 @@
 1|false|$SCRIPT_ROOT_PATH/urxvt/ext/clipboard|$HOME/.urxvt/ext/clipboard
 1|false|$SCRIPT_ROOT_PATH/urxvt/ext/tabbed-custom|$HOME/.urxvt/ext/tabbed-custom
 0|false|$SCRIPT_HOME_DIR/config_setup/vim/solarized/vim-colors-solarized/colors/solarized.vim|$HOME/.vim/colors/solarized.vim
-0|false|$SCRIPT_HOME_DIR/config_setup/vim/vim-pathogen/autoload/pathogen.vim|$HOME/.vim/autoload/pathogen.vim
-0|false|$SCRIPT_HOME_DIR/config_setup/vim/ale|$HOME/.vim/bundle/ale
-0|false|$SCRIPT_HOME_DIR/config_setup/vim/nerdtree|$HOME/.vim/bundle/nerdtree
-0|false|$SCRIPT_HOME_DIR/config_setup/vim/vim-better-whitespace|$HOME/.vim/bundle/vim-better-whitespace
+0|false|$SCRIPT_HOME_DIR/config_setup/vim/vim-plug/plug.vim|$HOME/.vim/autoload/plug.vim
 1|true|$SCRIPT_HOME_DIR/config_setup/tmux|$HOME/.tmux/plugins
 0|true|$SCRIPT_ROOT_PATH/bashrc|$HOME/.bashrc
 0|false|$SCRIPT_ROOT_PATH/vimrc|$HOME/.vimrc

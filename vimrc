@@ -28,7 +28,21 @@ set t_vb=
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_insert_leave = 1
 
-execute pathogen#infect()
+"execute pathogen#infect()
+call plug#begin('~/.vim/plugged')
+
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'dense-analysis/ale'
+Plug 'scrooloose/nerdtree'
+" For installation, see https://github.com/suan/vim-instant-markdown. Use
+" nodejs
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+
+" :PlugInstall to install plugins
+" :PlugUpdate to update
+" :PlugClean to remove unused
+" :PlugUpgrade to upgrade vim-plug
+call plug#end()
 
 "colorscheme camo
 

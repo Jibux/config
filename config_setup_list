@@ -1,9 +1,6 @@
 1|$HOME/config_setup/urxvt|urxvt-font-size|git clone https://github.com/majutsushi/urxvt-font-size.git
-1|$HOME/config_setup/vim|solarized|git clone git://github.com/altercation/solarized.git
-1|$HOME/config_setup/vim|vim-pathogen|git clone https://github.com/tpope/vim-pathogen.git
-1|$HOME/config_setup/vim|vim-better-whitespace|git clone https://github.com/ntpeters/vim-better-whitespace.git
-1|$HOME/config_setup/vim|ale|git clone https://github.com/dense-analysis/ale.git
-1|$HOME/config_setup/vim|nerdtree|git clone https://github.com/scrooloose/nerdtree.git
+1|$HOME/config_setup/vim|solarized|git clone https://github.com/altercation/solarized.git
+1|$HOME/config_setup/vim|vim-plug|git clone https://github.com/junegunn/vim-plug.git
 1|$HOME/config_setup/tmux|tmux-better-mouse-mode|git clone https://git::@github.com/nhdaly/tmux-better-mouse-mode
 1|$HOME/config_setup/tmux|tmux-sensible|git clone https://git::@github.com/tmux-plugins/tmux-sensible
 1|$HOME/config_setup/tmux|tpm|git clone https://github.com/tmux-plugins/tpm

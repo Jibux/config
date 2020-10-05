@@ -28,7 +28,9 @@ set t_vb=
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_insert_leave = 1
 
-"execute pathogen#infect()
+let g:instant_markdown_port = 1206
+let g:instant_markdown_browser = "firefox --new-window"
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'ntpeters/vim-better-whitespace'
@@ -110,6 +112,7 @@ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml "foldmethod=indent
 autocmd FileType yaml setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+autocmd FileType markdown setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
 
 " In visual, keep the indented bloc
 vnoremap < <gv

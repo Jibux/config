@@ -92,8 +92,8 @@ xterm*|rxvt*)
 esac
 
 
-if [[ -z "$PS_SYMBOL" ]]; then
-	if [[ ${EUID} == 0 ]] ; then
+if [ -z "$PS_SYMBOL" ]; then
+	if [ "$EUID" == "0" ] ; then
 		PS_SYMBOL='#'
 		COLOR_USER=${COLOR_USER:-'\[\033[01;31m\]'} # red
 	else
@@ -280,7 +280,11 @@ PATH=$PATH:~/bin:~/config_setup/git/diff-so-fancy
 [ -f "$HOME/bin/ssh_agent_custom.sh" ] && "$HOME/bin/ssh_agent_custom.sh"
 [[ -z "$SSH_AGENT_PID" && -f "$HOME/.tmp/ssh_vars" ]] && . "$HOME/.tmp/ssh_vars"
 
-umask 077
+if [ "$EUID" != "0" ]; then
+	umask 077
+else
+	umask 022
+fi
 
 [ -f "$HOME/.bash_aliases" ] && . "$HOME/.bash_aliases"
 [ -f "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local"

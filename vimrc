@@ -34,8 +34,12 @@ let g:instant_markdown_browser = "firefox --new-window"
 call plug#begin('~/.vim/plugged')
 
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'glench/vim-jinja2-syntax'
 Plug 'dense-analysis/ale'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " For installation, see https://github.com/suan/vim-instant-markdown. Use
 " nodejs
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
@@ -45,6 +49,10 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 " :PlugClean to remove unused
 " :PlugUpgrade to upgrade vim-plug
 call plug#end()
+
+let g:airline_theme='solarized'
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline_powerline_fonts = 1
 
 "colorscheme camo
 
@@ -205,9 +213,12 @@ vnoremap <C-v> <C-c>"+p
 
 " Tabs
 " ctrl+page-up or ctrl+page-down
-noremap [6^ :tabnext<CR>
-noremap [5^ :tabprevious<CR>
-nnoremap <C-t> :tabnew<CR>
+"noremap [6^ :tabnext<CR>
+"noremap [5^ :tabprevious<CR>
+" ctrl+up or ctrl+down
+noremap <C-Down> :tabnext<CR>
+noremap <C-Up> :tabprevious<CR>
+noremap <C-t> :tabnew<CR>
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -218,7 +229,6 @@ endif
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
-let g:SuperTabDefaultCompletionType = "context"
 
 " Folding {{{
 if has ('folding')
@@ -276,7 +286,7 @@ if has("spell")
 	" We set the keys to manually activate the syntax's correction
 	noremap <F10> :setlocal spell spelllang=fr <CR>
 	noremap <F11> :setlocal spell spelllang=en <CR>
-	noremap <F12> :setlocal nospell <CR>
+	noremap <F9> :setlocal nospell <CR>
 	noremap [29~ z=
 	hi clear SpellBad
 	hi SpellBad cterm=inverse,bold,underline ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE

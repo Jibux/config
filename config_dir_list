@@ -7,6 +7,7 @@
 1|$HOME/.tmux
 1|$HOME/.tmp
 1|$HOME/.config
+1|$HOME/.config/terminator
 1|$HOME/config_setup/urxvt
 1|$HOME/config_setup/tmux
 1|$HOME/config_setup/vim

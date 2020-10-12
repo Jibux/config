@@ -10,5 +10,6 @@
 1|false|$SCRIPT_ROOT_PATH/screenrc|$HOME/.screenrc
 1|false|$SCRIPT_ROOT_PATH/xdefaults|$HOME/.config/xdefaults
 1|false|$SCRIPT_ROOT_PATH/Xdefaults|$HOME/.Xdefaults
+1|false|$SCRIPT_ROOT_PATH/terminator_config|$HOME/.config/terminator/config
 1|false|$SCRIPT_ROOT_PATH/moc/config|$HOME/.moc/config
 1|false|$SCRIPT_ROOT_PATH/moc/themes/custom_theme|$HOME/.moc/themes/custom_theme

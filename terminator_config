@@ -8,14 +8,18 @@
   title_inactive_bg_color = "#002b36"
 [keybindings]
   zoom_in = <Primary>KP_Add
-  new_tab = <Primary><Shift>t
+  new_tab = <Shift>Down
+  go_up = <Shift><Alt>Up
+  go_down = <Shift><Alt>Down
+  go_left = <Shift><Alt>Left
+  go_right = <Shift><Alt>Right
   split_horiz = <Primary><Shift>o
   split_vert = <Primary><Shift>l
   paste = <Alt>v
-  move_tab_right = <Primary><Shift>Page_Down
-  move_tab_left = <Primary><Shift>Page_Up
-  next_tab = <Primary>Page_Down
-  prev_tab = <Primary>Page_Up
+  move_tab_right = <Primary><Shift>Right
+  move_tab_left = <Primary><Shift>Left
+  next_tab = <Shift>Right
+  prev_tab = <Shift>Left
   full_screen = F12
   broadcast_off = None
   broadcast_group = None

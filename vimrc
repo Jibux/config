@@ -219,11 +219,8 @@ vnoremap <C-v> <C-c>"+p
 
 " Tabs
 " ctrl+page-up or ctrl+page-down
-"noremap [6^ :tabnext<CR>
-"noremap [5^ :tabprevious<CR>
-" ctrl+up or ctrl+down
-noremap <C-Down> :tabnext<CR>
-noremap <C-Up> :tabprevious<CR>
+noremap [6^ :tabnext<CR>
+noremap [5^ :tabprevious<CR>
 noremap <C-t> :tabnew<CR>
 
 " Source a global configuration file if available

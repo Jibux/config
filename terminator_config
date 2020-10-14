@@ -9,10 +9,6 @@
 [keybindings]
   zoom_in = <Primary>KP_Add
   new_tab = <Primary><Shift>t
-  go_up = <Shift>Up
-  go_down = <Shift>Down
-  go_left = <Shift>Left
-  go_right = <Shift>Right
   split_horiz = <Primary><Shift>o
   split_vert = <Primary><Shift>l
   paste = <Alt>v

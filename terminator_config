@@ -3,16 +3,12 @@
   window_state = maximise
   title_hide_sizetext = True
   title_transmit_fg_color = "#4e9a06"
-  title_transmit_bg_color = "#002b36"
+  title_transmit_bg_color = "#092127"
   title_inactive_fg_color = "#f2f2f2"
   title_inactive_bg_color = "#888a85"
 [keybindings]
   zoom_in = <Primary>KP_Add
   new_tab = <Shift>Down
-  go_up = <Shift><Alt>Up
-  go_down = <Shift><Alt>Down
-  go_left = <Shift><Alt>Left
-  go_right = <Shift><Alt>Right
   split_horiz = <Primary>minus
   split_vert = <Primary><Shift>l
   paste = <Alt>v

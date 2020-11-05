@@ -30,6 +30,8 @@ let g:ale_lint_on_insert_leave = 1
 
 let g:instant_markdown_port = 1206
 let g:instant_markdown_browser = "firefox --new-window"
+" Start preview :InstantMarkdownPreview - stop with :InstantMarkdownStop.
+let g:instant_markdown_autostart = 0
 
 call plug#begin('~/.vim/plugged')
 
@@ -42,8 +44,7 @@ Plug 'dense-analysis/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-" TODO: Configure tabular
-Plug 'godlygeek/tabular'
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " For installation, see https://github.com/suan/vim-instant-markdown. Use
@@ -127,6 +128,7 @@ autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml "foldmethod=indent
 autocmd FileType yaml setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
 autocmd FileType markdown setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+autocmd Filetype markdown TableModeToggle
 
 " In visual, keep the indented bloc
 vnoremap < <gv

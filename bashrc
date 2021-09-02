@@ -186,8 +186,13 @@ ps1_color()
 	local format_date
 	format_date="[$(date '+%d/%m/%y %H:%M:%S')]"
 
-	PS1L=$cwd$git
-	PS1R=$format_date
+	local kube_ps=""
+	if [ -f /usr/bin/kubectl ]; then
+		source ~/config_setup/bash/kube-ps1/kube-ps1.sh
+		kube_ps=' $(kube_ps1)'
+	fi
+	PS1L=$cwd$git$kube_ps
+	PS1R="$format_date"
 	# Use compensate variable if PS1R has some formating like colors
 	compensate=0
 

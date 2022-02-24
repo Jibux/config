@@ -50,6 +50,7 @@ Plug 'vim-airline/vim-airline-themes'
 " For installation, see https://github.com/suan/vim-instant-markdown. Use
 " nodejs
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'rust-lang/rust.vim'
 
 " :PlugInstall to install plugins
 " :PlugUpdate to update

@@ -12,10 +12,12 @@
 	cif = commit --fixup
 	st = status
 	last = log -1 HEAD
+	lasthash = log -n1 --format=format:"%H" HEAD
 	unstage = reset HEAD --
+	defbr = "!git remote show origin | sed -n '/HEAD branch/s/.*: //p'"
 	pushu = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
-	mergem = "!br=$(git rev-parse --abbrev-ref HEAD) && [ \"$br\" != \"master\" ] && git co master && git pull && git co $br && git rb master && git co master && git merge $br && git push origin master && git br -D $br && git push origin :$br"
-	rebasem = "!br=$(git rev-parse --abbrev-ref HEAD) && [ \"$br\" != \"master\" ] && git pull && git co master && git pull && git co $br && git rb master && git pushf"
+	mergem = "!defbr=$(git defbr) && br=$(git rev-parse --abbrev-ref HEAD) && [ \"$br\" != \"$defbr\" ] && git co $defbr && git pull && git co $br && git rb $defbr && git co $defbr && git merge $br && git push origin $defbr && git br -D $br && git push origin :$br"
+	rebasem = "!defbr=$(git defbr) && br=$(git rev-parse --abbrev-ref HEAD) && [ \"$br\" != \"$defbr\" ] && git pull && git co $defbr && git pull && git co $br && git rb $defbr && git pushf"
 	pushf = push -f
 	rb = rebase
 	rba = rebase --abort

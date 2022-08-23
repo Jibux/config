@@ -27,6 +27,8 @@ set t_vb=
 " Before plugins are loaded
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_insert_leave = 1
+let g:ale_linter_aliases = {'yml': ['yaml']}
+let g:ale_linters = {'yml': ['yamllint']}
 
 let g:instant_markdown_port = 1206
 let g:instant_markdown_browser = "firefox --new-window"
@@ -196,6 +198,16 @@ hi MyTodo cterm=NONE ctermbg=blue ctermfg=black guibg=NONE guifg=NONE
 noremap <C-s> :update<CR>
 vnoremap <C-s> <C-C>:update<CR>
 inoremap <C-s> <C-O>:update<CR>
+
+" Map ctrl+m for next
+noremap <C-m> :n<CR>
+vnoremap <C-m> <C-C>:n<CR>
+inoremap <C-m> <C-O>:n<CR>
+
+" Map ctrl+b for prev
+noremap <C-l> :N<CR>
+vnoremap <C-l> <C-C>:N<CR>
+inoremap <C-l> <C-O>:N<CR>
 
 " Map ctrl+q to quit all files
 noremap <C-q> :qa<CR>

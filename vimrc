@@ -199,15 +199,15 @@ noremap <C-s> :update<CR>
 vnoremap <C-s> <C-C>:update<CR>
 inoremap <C-s> <C-O>:update<CR>
 
-" Map ctrl+m for next
-noremap <C-m> :n<CR>
-vnoremap <C-m> <C-C>:n<CR>
-inoremap <C-m> <C-O>:n<CR>
+" Map ctrl+l for next
+noremap <C-l> :n<CR>
+vnoremap <C-l> <C-C>:n<CR>
+inoremap <C-l> <C-O>:n<CR>
 
-" Map ctrl+b for prev
-noremap <C-l> :N<CR>
-vnoremap <C-l> <C-C>:N<CR>
-inoremap <C-l> <C-O>:N<CR>
+" Map ctrl+k for prev
+noremap <C-k> :N<CR>
+vnoremap <C-k> <C-C>:N<CR>
+inoremap <C-k> <C-O>:N<CR>
 
 " Map ctrl+q to quit all files
 noremap <C-q> :qa<CR>

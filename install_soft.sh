@@ -22,3 +22,5 @@ sudo add-apt-repository 'deb https://typora.io/linux ./'
 sudo apt-get update
 sudo apt-get install typora
 
+sudo pip3 install -r python_requirements.txt
+

@@ -291,6 +291,5 @@ else
 	umask 022
 fi
 
-[ -f "$HOME/.bash_aliases" ] && . "$HOME/.bash_aliases"
 [ -f "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local"
 

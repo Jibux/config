@@ -294,5 +294,5 @@ else
 	umask 022
 fi
 
-[ -f "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local"
+[ -f "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local" || true
 

@@ -13,8 +13,7 @@ sudo apt install -y vim vim-common vim-gtk3 vim-gui-common vim-nox vim-runtime v
 sudo apt install -y rxvt-unicode-256color
 sudo apt install -y "$BACKPORTS_OPT" tmux
 sudo apt install -y tmux-plugin-manager
-sudo apt install -y pandoc
-sudo apt install -y python3-pip
+sudo apt install -y pandoc python3-pip exfatprogs
 
 command -v npm &>/dev/null && sudo npm -g install instant-markdown-d
 

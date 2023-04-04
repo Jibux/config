@@ -19,6 +19,8 @@
 	mergem = "!defbr=$(git defbr) && br=$(git rev-parse --abbrev-ref HEAD) && [ \"$br\" != \"$defbr\" ] && git co $defbr && git pull && git co $br && git rb $defbr && git co $defbr && git merge $br && git push origin $defbr && git br -D $br && git push origin :$br"
 	rebasem = "!defbr=$(git defbr) && br=$(git rev-parse --abbrev-ref HEAD) && [ \"$br\" != \"$defbr\" ] && git pull && git co $defbr && git pull && git co $br && git rb $defbr && git pushf"
 	pushf = push -f
+	sync = "!git pull --rebase && git push"
+	syncf = "!git pull --rebase && git pushf"
 	rb = rebase
 	rba = rebase --abort
 	rbc = rebase --continue

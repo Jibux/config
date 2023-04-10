@@ -14,6 +14,8 @@ sudo apt install -y rxvt-unicode-256color
 sudo apt install -y "$BACKPORTS_OPT" tmux
 sudo apt install -y tmux-plugin-manager
 sudo apt install -y pandoc python3-pip exfatprogs
+sudo apt install -y shellcheck
+
 
 command -v npm &>/dev/null && sudo npm -g install instant-markdown-d
 

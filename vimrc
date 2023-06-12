@@ -53,6 +53,7 @@ Plug 'vim-airline/vim-airline-themes'
 " nodejs
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'rust-lang/rust.vim'
+Plug 'google/vim-jsonnet'
 
 " :PlugInstall to install plugins
 " :PlugUpdate to update
@@ -132,6 +133,7 @@ au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml "foldmethod=indent
 autocmd FileType yaml setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
 autocmd FileType markdown setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
 autocmd Filetype markdown TableModeToggle
+autocmd FileType jsonnet setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
 
 " In visual, keep the indented bloc
 vnoremap < <gv

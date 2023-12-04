@@ -11,6 +11,7 @@
 	ciaa = commit --amend -a
 	cif = commit --fixup
 	st = status
+	sethead = remote set-head origin -a
 	last = log -1 HEAD
 	lasthash = log -n1 --format=format:"%H" HEAD
 	unstage = reset HEAD --
@@ -25,6 +26,9 @@
 	rba = rebase --abort
 	rbc = rebase --continue
 	rbs = rebase --skip
+	rbm = rebase refs/remotes/origin/HEAD
+	rbmi = rbm -i
+	rbmis = rbmi --autosquash
 	rst = reset
 	sh = show
 	cpk = cherry-pick

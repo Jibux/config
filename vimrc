@@ -135,6 +135,7 @@ autocmd FileType markdown setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandta
 autocmd Filetype markdown TableModeToggle
 autocmd FileType jsonnet setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
 autocmd FileType json setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
+autocmd FileType jinja setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab
 
 " In visual, keep the indented bloc
 vnoremap < <gv

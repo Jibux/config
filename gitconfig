@@ -14,6 +14,8 @@
 	sethead = remote set-head origin -a
 	last = log -1 HEAD
 	lasthash = log -n1 --format=format:"%H" HEAD
+	msghash = "!f() { git log --grep=\"$1\" -n1 --pretty=format:'%h'; }; f"
+	hashmsg = log --format=%s -n 1
 	unstage = reset HEAD --
 	defbr = "!git remote show origin | sed -n '/HEAD branch/s/.*: //p'"
 	pushu = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
@@ -34,6 +36,7 @@
 	cpk = cherry-pick
 	cpka = cherry-pick --abort
 	cpkc = cherry-pick --continue
+	cpktobr = "!f() { msg=$(git hashmsg \"$2\") && git co $1 && git pull && hash_revert=$(git msghash \"$msg\") && [ -n \"$hash_revert\" ] && git revert $hash_revert ; git cpk $2 && git sync && git co -;}; f"
 	gr = grep
 	rv = revert
 	l = log --graph --pretty=format:'%Cred%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'

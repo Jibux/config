@@ -187,7 +187,7 @@ ps1_color()
 	format_date="[$(date '+%d/%m/%y %H:%M:%S')]"
 
 	local kube_ps=""
-	if [ -f /usr/bin/kubectl ]; then
+	if [[ -f /usr/bin/kubectl && -f ~/config_setup/bash/kube-ps1/kube-ps1.sh ]]; then
 		source ~/config_setup/bash/kube-ps1/kube-ps1.sh
 		kube_ps=' $(kube_ps1)'
 	fi

@@ -120,68 +120,68 @@ SYMBOL_GIT_PULL=${SYMBOL_GIT_PULL:-↓}
 
 __git_info()
 {
-    [[ $POWERLINE_GIT = 0 ]] && return # disabled
-    hash git 2>/dev/null || return # git not found
-    local git_eng="env LANG=C git"   # force git output in English to make our work easier
+	[[ $POWERLINE_GIT = 0 ]] && return # disabled
+	hash git 2>/dev/null || return # git not found
+	local git_eng="env LANG=C git"   # force git output in English to make our work easier
 
-    # get current branch name
-    local ref
+	# get current branch name
+	local ref
 
 	ref=$($git_eng symbolic-ref --short HEAD 2>/dev/null)
 
-    if [[ -n "$ref" ]]; then
-        # prepend branch symbol
-        ref=$SYMBOL_GIT_BRANCH$ref
-    else
-        # get tag name or short unique hash
-        ref=$($git_eng describe --tags --always 2>/dev/null)
-    fi
+	if [[ -n "$ref" ]]; then
+		# prepend branch symbol
+		ref=$SYMBOL_GIT_BRANCH$ref
+	else
+		# get tag name or short unique hash
+		ref=$($git_eng describe --tags --always 2>/dev/null)
+	fi
 
-    [[ -n "$ref" ]] || return  # not a git repo
+	[[ -n "$ref" ]] || return  # not a git repo
 
-    local marks
+	local marks
 
-    # scan first two lines of output from `git status`
-    while IFS= read -r line; do
-        if [[ $line =~ ^## ]]; then # header line
-            [[ $line =~ ahead\ ([0-9]+) ]] && marks+=" $SYMBOL_GIT_PUSH${BASH_REMATCH[1]}"
-            [[ $line =~ behind\ ([0-9]+) ]] && marks+=" $SYMBOL_GIT_PULL${BASH_REMATCH[1]}"
-        else # branch is modified if output contains more lines after the header line
-            marks="$SYMBOL_GIT_MODIFIED$marks"
-            break
-        fi
-    done < <($git_eng status --porcelain --branch 2>/dev/null)  # note the space between the two <
+	# scan first two lines of output from `git status`
+	while IFS= read -r line; do
+	if [[ $line =~ ^## ]]; then # header line
+		[[ $line =~ ahead\ ([0-9]+) ]] && marks+=" $SYMBOL_GIT_PUSH${BASH_REMATCH[1]}"
+		[[ $line =~ behind\ ([0-9]+) ]] && marks+=" $SYMBOL_GIT_PULL${BASH_REMATCH[1]}"
+	else # branch is modified if output contains more lines after the header line
+		marks="$SYMBOL_GIT_MODIFIED$marks"
+		break
+	fi
+	done < <($git_eng status --porcelain --branch 2>/dev/null)  # note the space between the two <
 
-    # print the git branch segment without a trailing newline
-    printf " %s" "$ref$marks"
+	# print the git branch segment without a trailing newline
+	printf " %s" "$ref$marks"
 }
 
 ps1_color()
 {
-    # Check the exit code of the previous command and display different
-    # colors in the prompt accordingly.
-    if [ $? -eq 0 ]; then
-        local symbol="$COLOR_SUCCESS\n$PS_SYMBOL $COLOR_RESET"
-    else
-        local symbol="$COLOR_FAILURE\n$PS_SYMBOL $COLOR_RESET"
-    fi
+	# Check the exit code of the previous command and display different
+	# colors in the prompt accordingly.
+	if [ $? -eq 0 ]; then
+		local symbol="$COLOR_SUCCESS\n$PS_SYMBOL $COLOR_RESET"
+	else
+		local symbol="$COLOR_FAILURE\n$PS_SYMBOL $COLOR_RESET"
+	fi
 
-    local cwd="$COLOR_CWD\w$COLOR_RESET"
+	local cwd="$COLOR_CWD\w$COLOR_RESET"
 	cwd='${debian_chroot:+($debian_chroot)}'"$COLOR_USER"'\u\[\033[01;34m\]@\[\033[01;33m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]'
 
 	local git
-    # Bash by default expands the content of PS1 unless promptvars is disabled.
-    # We must use another layer of reference to prevent expanding any user
-    # provided strings, which would cause security issues.
-    # POC: https://github.com/njhartwell/pw3nage
-    # Related fix in git-bash: https://github.com/git/git/blob/9d77b0405ce6b471cb5ce3a904368fc25e55643d/contrib/completion/git-prompt.sh#L324
-    if shopt -q promptvars; then
-        __powerline_git_info="$(__git_info)"
-        git="$COLOR_GIT\${__powerline_git_info}$COLOR_RESET"
-    else
-        # promptvars is disabled. Avoid creating unnecessary env var.
-        git="$COLOR_GIT$(__git_info)$COLOR_RESET"
-    fi
+	# Bash by default expands the content of PS1 unless promptvars is disabled.
+	# We must use another layer of reference to prevent expanding any user
+	# provided strings, which would cause security issues.
+	# POC: https://github.com/njhartwell/pw3nage
+	# Related fix in git-bash: https://github.com/git/git/blob/9d77b0405ce6b471cb5ce3a904368fc25e55643d/contrib/completion/git-prompt.sh#L324
+	if shopt -q promptvars; then
+		__powerline_git_info="$(__git_info)"
+		git="$COLOR_GIT\${__powerline_git_info}$COLOR_RESET"
+	else
+		# promptvars is disabled. Avoid creating unnecessary env var.
+		git="$COLOR_GIT$(__git_info)$COLOR_RESET"
+	fi
 
 	local format_date
 	format_date="[$(date '+%d/%m/%y %H:%M:%S')]"
@@ -197,7 +197,7 @@ ps1_color()
 	compensate=0
 
 	PS1_FINAL=$(printf "%*s\r%s" "$((COLUMNS+compensate))" "$PS1R" "$PS1L")
-    PS1="$WINDOW_TITLE$PS1_FINAL$symbol"
+	PS1="$WINDOW_TITLE$PS1_FINAL$symbol"
 }
 
 

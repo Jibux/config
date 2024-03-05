@@ -283,7 +283,7 @@ stty -ixon
 
 [ -n "$DISPLAY" ] && xset b off
 
-PATH=$PATH:~/bin:~/config_setup/git/diff-so-fancy
+PATH=$PATH:~/bin:~/.local/bin:~/config_setup/git/diff-so-fancy
 
 [ -f "$HOME/bin/ssh_agent_custom.sh" ] && "$HOME/bin/ssh_agent_custom.sh"
 [[ -z "$SSH_AGENT_PID" && -f "$HOME/.tmp/ssh_vars" ]] && . "$HOME/.tmp/ssh_vars"

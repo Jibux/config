@@ -14,7 +14,7 @@
 	sethead = remote set-head origin -a
 	last = log -1 HEAD
 	lasthash = log -n1 --format=format:"%H" HEAD
-	msghash = "!f() { git log --grep=\"$1\" -n1 --pretty=format:'%h'; }; f"
+	msghash = "!f() { git log --grep=\"^$1$\" -n1 --pretty=format:'%h'; }; f"
 	hashmsg = log --format=%s -n 1
 	unstage = reset HEAD --
 	defbr = "!git remote show origin | sed -n '/HEAD branch/s/.*: //p'"

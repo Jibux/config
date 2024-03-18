@@ -187,8 +187,7 @@ ps1_color()
 	format_date="[$(date '+%d/%m/%y %H:%M:%S')]"
 
 	local kube_ps=""
-	if [[ -f /usr/bin/kubectl && -f ~/config_setup/bash/kube-ps1/kube-ps1.sh ]]; then
-		source ~/config_setup/bash/kube-ps1/kube-ps1.sh
+	if [[ -f /usr/bin/kubectl && $(type -t kube_ps1) == function ]]; then
 		kube_ps=' $(kube_ps1)'
 	fi
 	PS1L=$cwd$git$kube_ps
@@ -284,6 +283,8 @@ stty -ixon
 [ -n "$DISPLAY" ] && xset b off
 
 PATH=$PATH:~/bin:~/.local/bin:~/config_setup/git/diff-so-fancy
+
+[ -f ~/config_setup/bash/kube-ps1/kube-ps1.sh ] && source ~/config_setup/bash/kube-ps1/kube-ps1.sh
 
 [ -f "$HOME/bin/ssh_agent_custom.sh" ] && "$HOME/bin/ssh_agent_custom.sh"
 [[ -z "$SSH_AGENT_PID" && -f "$HOME/.tmp/ssh_vars" ]] && . "$HOME/.tmp/ssh_vars"

@@ -299,23 +299,6 @@ nnoremap <C-LeftMouse> :call CopyModeToggle()<CR>
 " NERDTree
 noremap <F7> :NERDTreeToggle <CR>
 
-
-" Spell
-if has("spell")
-	if !filewritable($HOME."/.vim/spell")
-		call mkdir($HOME."/.vim/spell", "p")
-	endif
-	set spellsuggest=10 "10 suggestions
-	" We set the keys to manually activate the syntax's correction
-	noremap <F10> :setlocal spell spelllang=fr <CR>
-	noremap <F11> :setlocal spell spelllang=en <CR>
-	noremap <F9> :setlocal nospell <CR>
-	noremap [29~ z=
-	hi clear SpellBad
-	hi SpellBad cterm=inverse,bold,underline ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
-	hi SpellCap cterm=inverse,bold,underline ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
-endif
-
 syntax keyword SpellBad ERROR
 
 autocmd BufNewFile,BufRead *.vue set syntax=html
@@ -337,4 +320,20 @@ set background=dark " dark | light "
 " When using a terminal without solarized theme
 " let g:solarized_termcolors=256
 colorscheme solarized
+
+" Spell
+if has("spell")
+	if !filewritable($HOME."/.vim/spell")
+		call mkdir($HOME."/.vim/spell", "p")
+	endif
+	set spellsuggest=10 "10 suggestions
+	" We set the keys to manually activate the syntax's correction
+	noremap <F10> :setlocal spell spelllang=fr <CR>
+	noremap <F11> :setlocal spell spelllang=en <CR>
+	noremap <F9> :setlocal nospell <CR>
+	noremap [29~ z=
+	hi clear SpellBad
+	hi SpellBad cterm=underline ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+	hi SpellCap cterm=inverse,bold ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
+endif
 

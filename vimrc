@@ -321,6 +321,9 @@ set background=dark " dark | light "
 " let g:solarized_termcolors=256
 colorscheme solarized
 
+" Set transparent background to make it same color as terminal
+hi Normal ctermbg=NONE
+
 " Spell
 if has("spell")
 	if !filewritable($HOME."/.vim/spell")

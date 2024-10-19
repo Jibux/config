@@ -2,6 +2,8 @@
 # ~/.bashrc
 #
 
+# shellcheck disable=SC1000-SC9999
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -284,7 +286,7 @@ stty -ixon
 
 [ -n "$DISPLAY" ] && xset b off
 
-PATH=$PATH:~/bin:~/.local/bin:~/config_setup/git/diff-so-fancy
+PATH=$PATH:~/bin:~/.local/bin:$HOME/.cargo/env:~/config_setup/git/diff-so-fancy
 
 [ -f ~/config_setup/bash/kube-ps1/kube-ps1.sh ] && source ~/config_setup/bash/kube-ps1/kube-ps1.sh
 

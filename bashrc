@@ -286,7 +286,7 @@ stty -ixon
 
 [ -n "$DISPLAY" ] && xset b off
 
-PATH=$PATH:~/bin:~/.local/bin:$HOME/.cargo/env:~/config_setup/git/diff-so-fancy
+PATH=$PATH:~/bin:~/.local/bin:$HOME/.cargo/bin:~/config_setup/git/diff-so-fancy
 
 [ -f ~/config_setup/bash/kube-ps1/kube-ps1.sh ] && source ~/config_setup/bash/kube-ps1/kube-ps1.sh
 
@@ -305,4 +305,3 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-[ -f "$HOME/.cargo/env" ] && \. "$HOME/.cargo/env"

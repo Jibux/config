@@ -225,7 +225,7 @@ fi
 
 unset color_prompt force_color_prompt
 
-PROMPT_COMMAND="history -a${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND;}history -a"
 
 export LS_OPTIONS="$alias_color -h --group-directories-first"
 alias ls='ls $LS_OPTIONS'

@@ -169,7 +169,7 @@ ps1_color()
 	fi
 
 	local cwd="$COLOR_CWD\w$COLOR_RESET"
-	cwd='${debian_chroot:+($debian_chroot)}'"$COLOR_USER"'\u\[\033[01;34m\]@\[\033[01;33m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]'
+	cwd='${debian_chroot:+($debian_chroot)}'"${VIRTUAL_ENV_PROMPT:-}$COLOR_USER"'\u\[\033[01;34m\]@\[\033[01;33m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]'
 
 	local git
 	# Bash by default expands the content of PS1 unless promptvars is disabled.
@@ -186,18 +186,21 @@ ps1_color()
 	fi
 
 	local format_date
-	format_date="[$(date '+%d/%m/%y %H:%M:%S')]"
+	format_date="$(date '+%H:%M:%S')"
 
 	local kube_ps=""
 	if [[ -f /usr/bin/kubectl && $(type -t kube_ps1) == function ]]; then
 		kube_ps=' $(kube_ps1)'
 	fi
-	PS1L=$cwd$git$kube_ps
-	PS1R="$format_date"
-	# Use compensate variable if PS1R has some formating like colors
-	compensate=0
-
-	PS1_FINAL=$(printf "%*s\r%s" "$((COLUMNS+compensate))" "$PS1R" "$PS1L")
+	PS1L="$format_date $cwd$git$kube_ps"
+	PS1R=""
+	if [ -n "$PS1R" ]; then
+		# Use compensate variable if PS1R has some formating like colors
+		compensate=0
+		PS1_FINAL=$(printf "%*s\r%s" "$((COLUMNS+compensate))" "$PS1R" "$PS1L")
+	else
+		PS1_FINAL="$PS1L"
+	fi
 	PS1="$WINDOW_TITLE$PS1_FINAL$symbol"
 }
 

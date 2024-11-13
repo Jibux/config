@@ -186,7 +186,7 @@ ps1_color()
 	fi
 
 	local format_date
-	format_date="$(date '+%H:%M:%S')"
+	format_date="\[\033[00;90m\]$(date '+%H:%M:%S')$COLOR_RESET"
 
 	local kube_ps=""
 	if [[ -f /usr/bin/kubectl && $(type -t kube_ps1) == function ]]; then

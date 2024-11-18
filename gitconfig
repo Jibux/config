@@ -3,6 +3,7 @@
 	pager = diff-so-fancy | less -RFX
 [alias]
 	co = checkout
+	sw = switch
 	br = branch
 	bra = branch -a
 	brr = branch -r

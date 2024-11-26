@@ -170,7 +170,7 @@ ps1_color()
 	fi
 
 	local cwd="$COLOR_CWD\w$COLOR_RESET"
-	cwd='${debian_chroot:+($debian_chroot)}'"${VIRTUAL_ENV_PROMPT:-}$COLOR_USER"'\u\[\033[01;34m\]@\[\033[01;33m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]'
+	cwd='${debian_chroot:+($debian_chroot)}'"$COLOR_USER"'\u\[\033[01;34m\]@\[\033[01;33m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]'
 
 	local git
 	# Bash by default expands the content of PS1 unless promptvars is disabled.
@@ -193,8 +193,12 @@ ps1_color()
 	if [[ -f /usr/bin/kubectl && $(type -t kube_ps1) == function ]]; then
 		kube_ps=' $(kube_ps1)'
 	fi
+	local venv_prompt=""
+	if [ -n "${VIRTUAL_ENV_PROMPT:-}" ]; then
+		venv_prompt="$VIRTUAL_ENV_PROMPT"
+	fi
 	PS1L="$format_date $cwd$git$kube_ps"
-	PS1R=""
+	PS1R="$venv_prompt"
 	if [ -n "$PS1R" ]; then
 		# Use compensate variable if PS1R has some formating like colors
 		compensate=0

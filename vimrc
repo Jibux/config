@@ -55,6 +55,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'rust-lang/rust.vim'
 Plug 'google/vim-jsonnet'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 " :PlugInstall to install plugins
 " :PlugUpdate to update

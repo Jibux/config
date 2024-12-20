@@ -216,7 +216,11 @@ if [ "$color_prompt" = yes ]; then
 	PROMPT_COMMAND="ps1_color${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 
 	if [ -x /usr/bin/dircolors ]; then
-		test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)"
+		if test -r ~/.dircolors; then
+			eval "$(dircolors -b ~/.dircolors)"
+		else
+			eval "$(dircolors -b)"
+		fi
 
 		alias_color='--color=auto'
 

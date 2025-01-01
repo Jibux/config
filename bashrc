@@ -312,6 +312,7 @@ else
 fi
 
 [ -f "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local" || true
+[ -f "$HOME/.bash_aliases_python" ] && . "$HOME/.bash_aliases_python" || true
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" || true  # This loads nvm

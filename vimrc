@@ -161,19 +161,21 @@ set timeout timeoutlen=3000 ttimeoutlen=100
 " Go to the next/last line if right/left arrows are pressed in end/beginning of line
 set whichwrap=<,>,[,]
 
-set laststatus=2
-set statusline= " clear
-set statusline+=%-3.3n\ " nombre buffer
-set statusline+=%f\ " nom fichier
-set statusline+=%h%m%r%w " flags
-set statusline+=[%{strlen(&ft)?&ft:'none'}, " file type
-set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
-set statusline+=%{&fileformat}] " file format
-set statusline+=%#warningmsg# " Syntastic
-"set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-set statusline+=%= " right alignment
-set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
+" vim-airline already handles statusline
+"set laststatus=2
+"set statusline= " clear
+"set statusline+=%-3.3n\ " nombre buffer
+"set statusline+=%f\ " nom fichier
+"set statusline+=%h%m%r%w " flags
+"set statusline+=[%{strlen(&ft)?&ft:'none'}, " file type
+"set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
+"set statusline+=%{&fileformat}] " file format
+"set statusline+=%{FugitiveStatusline()} " git status
+"set statusline+=%#warningmsg# " Syntastic
+""set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"set statusline+=%= " right alignment
+"set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
 
 set cursorline
 hi CursorLine cterm=bold ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
@@ -322,6 +324,7 @@ set background=dark " dark | light "
 " When using a terminal without solarized theme
 " let g:solarized_termcolors=256
 colorscheme solarized
+
 
 " Set transparent background to make it same color as terminal
 hi Normal ctermbg=NONE
